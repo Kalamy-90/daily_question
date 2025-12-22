@@ -4,6 +4,7 @@ import React from 'react';
     import CommandsSection from '@/components/landing/CommandsSection';
     import HowToStartSection from '@/components/landing/HowToStartSection';
     import FaqSection from '@/components/landing/FaqSection';
+    import NewFeaturesSection from '@/components/landing/NewFeaturesSection';
     import PageFooter from '@/components/landing/PageFooter';
     import { Toaster } from '@/components/ui/toaster';
 
@@ -13,6 +14,7 @@ import React from 'react';
           <Toaster />
           <LandingHeader />
           <main className="pt-0"> {/* Adjusted padding, LandingHeader now has its own padding logic */}
+            <NewFeaturesSection />
             <FeaturesSection />
             <CommandsSection />
             <HowToStartSection />
