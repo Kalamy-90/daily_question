@@ -15,7 +15,7 @@ import React from 'react';
       {
         icon: <Award className="h-10 w-10 text-yellow-400" />,
         title: "Annonce des Résultats et Récompenses",
-        description: "À l'heure des résultats (également configurable), le bot annonce la bonne réponse et les gagnants. Définissez des récompenses personnalisées pour les 3 premiers : rôles Discord temporaires ou messages personnalisés. Les rôles peuvent être automatiquement retirés à la prochaine question. Par défaut, les points sont attribués : 5 pour le 1er, 3 pour le 2ème, et 1 pour le 3ème. Pour une transparence totale, un résumé interactif permet de voir toutes les réponses soumises par les participants et leurs temps de réaction. **Nouveauté : Vous pouvez choisir de masquer la liste complète des réponses lors des résultats.**",
+        description: "À l'heure des résultats (également configurable), le bot annonce la bonne réponse et les gagnants. Définissez des récompenses personnalisées pour les 3 premiers : rôles Discord temporaires ou messages personnalisés. Les rôles peuvent être automatiquement retirés à la prochaine question. Par défaut, les points sont attribués : 5 pour le 1er, 3 pour le 2ème, et 1 pour le 3ème. Pour une transparence totale, un résumé interactif permet de voir toutes les réponses soumises par les participants et leurs temps de réaction. Nouveauté : Vous pouvez choisir de masquer la liste complète des réponses lors des résultats.",
       },
       {
         icon: <BarChart2 className="h-10 w-10 text-green-400" />,
@@ -25,12 +25,12 @@ import React from 'react';
       {
         icon: <Settings className="h-10 w-10 text-blue-400" />,
         title: "Configuration Personnalisable dans les moindres Détails",
-        description: "Commande /config : Une interface intuitive avec des menus déroulants et des modales pour ajuster tous les aspects du bot : Salon des questions, Planification avancée ultra flexible, Rôle à mentionner (ping), Gestion des administrateurs du bot (ajout/suppression d'utilisateurs et de rôles admin), Récompenses (rôles Discord ou messages), Mode de réponse (formulaire privé ou messages publics), Mode strict, Fuseau horaire du serveur, Activation/Désactivation du classement, Salon de logs, Rôles de podium dynamiques. **Nouveauté : Possibilité de mettre le bot en pause pour stopper l'envoi automatique des questions.**",
+        description: "Commande /config : Une interface intuitive avec des menus déroulants et des modales pour ajuster tous les aspects du bot : Salon des questions, Planification avancée ultra flexible, Rôle à mentionner (ping), Gestion des administrateurs du bot (ajout/suppression d'utilisateurs et de rôles admin), Récompenses (rôles Discord ou messages), Mode de réponse (formulaire privé ou messages publics), Mode strict, Fuseau horaire du serveur, Activation/Désactivation du classement, Salon de logs, Rôles de podium dynamiques. Nouveauté : Possibilité de mettre le bot en pause pour stopper l'envoi automatique des questions.",
       },
       {
         icon: <Edit3 className="h-10 w-10 text-indigo-400" />,
         title: "Gestion Avancée des Questions Personnalisées",
-        description: "Commande /questions_perso : Ajoutez vos propres questions et réponses. Modifiez ou supprimez des questions existantes. Choisissez l'ordre d'apparition : séquentiel ou aléatoire. Une fois la liste épuisée, le bot repasse aux questions globales. **Nouveauté : Vous pouvez suivre la progression du cycle (nombre de questions posées) et le réinitialiser pour reposer les questions déjà vues.**",
+        description: "Commande /questions_perso : Ajoutez vos propres questions et réponses. Modifiez ou supprimez des questions existantes. Choisissez l'ordre d'apparition : séquentiel ou aléatoire. Une fois la liste épuisée, le bot repasse aux questions globales. Nouveauté : Vous pouvez suivre la progression du cycle (nombre de questions posées) et le réinitialiser pour reposer les questions déjà vues.",
       },
       {
         icon: <UserCheck className="h-10 w-10 text-red-400" />,
@@ -45,7 +45,7 @@ import React from 'react';
       {
         icon: <DatabaseZap className="h-10 w-10 text-orange-400" />,
         title: "Fiabilité et Sauvegarde",
-        description: "Les configurations de tous les serveurs sont sauvegardées régulièrement dans un fichier server_configs.json et lors d'un arrêt propre du bot. Le bot tente de notifier les administrateurs en cas de problème (ex: salon de log introuvable). Système de validation et synchronisation des configurations au démarrage pour assurer la compatibilité. **Nouveauté : La commande /test_question peut maintenant être lancée en même temps qu'une question officielle, et peut être annulée à tout moment.**",
+        description: "Les configurations de tous les serveurs sont sauvegardées régulièrement dans un fichier server_configs.json et lors d'un arrêt propre du bot. Le bot tente de notifier les administrateurs en cas de problème (ex: salon de log introuvable). Système de validation et synchronisation des configurations au démarrage pour assurer la compatibilité. Nouveauté : La commande /test_question peut maintenant être lancée en même temps qu'une question officielle, et peut être annulée à tout moment.",
       },
       {
         icon: <RotateCcw className="h-10 w-10 text-purple-400" />,
@@ -56,9 +56,9 @@ import React from 'react';
 
     export const commandsData = [
       { name: "/config", description: "Configuration complète (Admin).", icon: <Settings className="mr-2 h-5 w-5 text-blue-500" /> },
-      { name: "/test_question [délai]", description: "Tester le système (Admin). **Peut être annulée à tout moment.**", icon: <PlayCircle className="mr-2 h-5 w-5 text-green-500" /> },
+      { name: "/test_question [délai]", description: "Tester le système (Admin). Peut être annulée à tout moment.", icon: <PlayCircle className="mr-2 h-5 w-5 text-green-500" /> },
       { name: "/help", description: "Aide et liste des commandes.", icon: <HelpCircle className="mr-2 h-5 w-5 text-yellow-500" /> },
-      { name: "/questions_perso", description: "Gérer vos questions (Admin). **Suivi et réinitialisation du cycle.**", icon: <Edit3 className="mr-2 h-5 w-5 text-indigo-500" /> },
+      { name: "/questions_perso", description: "Gérer vos questions (Admin). Suivi et réinitialisation du cycle.", icon: <Edit3 className="mr-2 h-5 w-5 text-indigo-500" /> },
       { name: "/classement", description: "Afficher le classement.", icon: <BarChart2 className="mr-2 h-5 w-5 text-purple-500" /> },
       { name: "/gestion_classement", description: "Gérer les points, les rôles de podium et la réinitialisation du classement (Admin).", icon: <ListChecks className="mr-2 h-5 w-5 text-orange-500" /> },
       { name: "/ban, /unban, /listban", description: "Modération des joueurs (Admin).", icon: <UserCheck className="mr-2 h-5 w-5 text-red-500" /> },
