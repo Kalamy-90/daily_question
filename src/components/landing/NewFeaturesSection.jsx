@@ -2,32 +2,56 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { MessageSquare, Award, RotateCcw, Settings2, Shield } from 'lucide-react';
+import { MessageSquare, Award, RotateCcw, Settings2, Shield, CheckSquare, Pause, Maximize2, ListChecks } from 'lucide-react';
 
 const NewFeaturesSection = () => {
   const newFeatures = [
     {
-      icon: <MessageSquare className="h-8 w-8 text-blue-400" />,
-      title: "Mode de Réponse Configurable",
-      description: "Choisissez entre des réponses privées via formulaire ou des messages publics dans le salon.",
+      icon: <CheckSquare className="h-8 w-8 text-green-400" />,
+      title: "Questions à Choix Multiples (QCM)",
+      description: "Le bot supporte désormais les QCM avec jusqu'à 25 options. Les utilisateurs peuvent répondre par lettre (A, B, C...) ou par texte.",
       badge: "Nouveau"
     },
     {
-      icon: <Award className="h-8 w-8 text-yellow-400" />,
-      title: "Rôles Discord en Récompenses",
-      description: "Attribuez des rôles Discord temporaires aux gagnants, avec suppression automatique optionnelle.",
+      icon: <ListChecks className="h-8 w-8 text-blue-400" />,
+      title: "Multiples Réponses Possibles",
+      description: "Les questions texte peuvent accepter plusieurs réponses correctes (synonymes) séparées par un point-virgule.",
       badge: "Nouveau"
     },
     {
-      icon: <RotateCcw className="h-8 w-8 text-red-400" />,
-      title: "Réinitialisation du Classement",
-      description: "Nouvelle commande /reset_classement pour remettre à zéro tous les points.",
+      icon: <Pause className="h-8 w-8 text-orange-400" />,
+      title: "Mise en Pause du Bot",
+      description: "Une nouvelle option dans /config permet de mettre le bot en pause pour stopper l'envoi automatique des questions.",
       badge: "Nouveau"
     },
     {
-      icon: <Shield className="h-8 w-8 text-green-400" />,
-      title: "Bannissements Temporaires",
-      description: "Possibilité de bannir des utilisateurs temporairement avec une durée en jours.",
+      icon: <RotateCcw className="h-8 w-8 text-purple-400" />,
+      title: "Réinitialisation des Questions Perso",
+      description: "Via /questions_perso, vous pouvez maintenant réinitialiser le cycle pour reposer les questions déjà vues.",
+      badge: "Nouveau"
+    },
+    {
+      icon: <ListChecks className="h-8 w-8 text-indigo-400" />,
+      title: "Suivi des Questions Perso",
+      description: "La commande /questions_perso affiche le nombre de questions posées et lesquelles sont encore disponibles.",
+      badge: "Nouveau"
+    },
+    {
+      icon: <Shield className="h-8 w-8 text-red-400" />,
+      title: "Arrêt de la Question de Test",
+      description: "La question lancée avec /test_question peut être annulée à tout moment par un administrateur via un bouton.",
+      badge: "Nouveau"
+    },
+    {
+      icon: <MessageSquare className="h-8 w-8 text-yellow-400" />,
+      title: "Masquer les Réponses aux Résultats",
+      description: "Une option de configuration permet de masquer la liste complète des réponses des utilisateurs lors de l'annonce des résultats.",
+      badge: "Nouveau"
+    },
+    {
+      icon: <Maximize2 className="h-8 w-8 text-teal-400" />,
+      title: "Test et Question Normale Simultanés",
+      description: "Il est possible de lancer une question de test (/test_question) en même temps que la question officielle du jour.",
       badge: "Nouveau"
     }
   ];
@@ -90,4 +114,3 @@ const NewFeaturesSection = () => {
 };
 
 export default NewFeaturesSection;
-
