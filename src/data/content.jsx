@@ -1,5 +1,5 @@
 import React from 'react';
-import { Settings, PlayCircle, HelpCircle, ListChecks, BarChart2, Shield, Zap, Award, LogIn, MessageCircle, Users, Edit3, Server, AlertTriangle, DatabaseZap, CalendarClock, FileText, UserCheck, BellRing, RotateCcw } from 'lucide-react';
+import { Settings, PlayCircle, HelpCircle, ListChecks, BarChart2, Shield, Zap, Award, LogIn, MessageCircle, Users, Edit3, Server, AlertTriangle, DatabaseZap, CalendarClock, FileText, UserCheck, BellRing, RotateCcw, Languages } from 'lucide-react';
 
 export const featuresData = {
   fr: [
@@ -117,6 +117,7 @@ export const commandsData = {
     { name: "/classement", description: "Afficher le classement.", icon: <BarChart2 className="mr-2 h-5 w-5 text-purple-500" /> },
     { name: "/gestion_classement", description: "Gérer les points, les rôles de podium et la réinitialisation du classement (Admin).", icon: <ListChecks className="mr-2 h-5 w-5 text-orange-500" /> },
     { name: "/ban, /unban, /listban", description: "Modération des joueurs (Admin).", icon: <UserCheck className="mr-2 h-5 w-5 text-red-500" /> },
+    { name: "/langue", description: "Changer la langue du bot (Français par défaut, option Anglais).", icon: <Languages className="mr-2 h-5 w-5 text-teal-500" /> },
   ],
   en: [
     { name: "/config", description: "Complete configuration (Admin).", icon: <Settings className="mr-2 h-5 w-5 text-blue-500" /> },
@@ -126,6 +127,7 @@ export const commandsData = {
     { name: "/leaderboard", description: "Display the leaderboard.", icon: <BarChart2 className="mr-2 h-5 w-5 text-purple-500" /> },
     { name: "/manage_leaderboard", description: "Manage points, podium roles, and leaderboard reset (Admin).", icon: <ListChecks className="mr-2 h-5 w-5 text-orange-500" /> },
     { name: "/ban, /unban, /listban", description: "Player moderation (Admin).", icon: <UserCheck className="mr-2 h-5 w-5 text-red-500" /> },
+    { name: "/language", description: "Change the bot's language (French by default, English option).", icon: <Languages className="mr-2 h-5 w-5 text-teal-500" /> },
   ]
 };
 
