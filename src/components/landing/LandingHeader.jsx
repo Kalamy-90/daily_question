@@ -187,7 +187,7 @@ const LandingHeader = () => {
               whileHover={{ scale: 1.06, rotate: 3 }}
               transition={{ type: "spring", stiffness: 300, damping: 12 }}
             />
-            <h1 className="font-display mx-auto mb-6 max-w-4xl text-5xl font-extrabold leading-[0.95] tracking-tight text-transparent bg-clip-text sm:text-6xl md:text-7xl lg:text-8xl" style={{ backgroundImage: 'linear-gradient(135deg, #fff8df 0%, #f4c974 42%, #a78bfa 78%, #ffffff 100%)' }}>
+            <h1 className="font-display mx-auto mb-4 max-w-4xl pb-3 text-5xl font-extrabold leading-[1.12] tracking-tight text-transparent bg-clip-text sm:text-6xl md:text-7xl lg:text-8xl" style={{ backgroundImage: 'linear-gradient(135deg, #fff8df 0%, #f4c974 42%, #a78bfa 78%, #ffffff 100%)' }}>
               {t.hero.title}
             </h1>
             <p className="mx-auto mb-5 max-w-3xl text-xl font-semibold text-amber-100/90 sm:text-2xl md:text-3xl">{t.hero.subtitle}</p>

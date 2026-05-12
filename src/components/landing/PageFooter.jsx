@@ -11,9 +11,9 @@ const PageFooter = () => {
   return (
     <footer className="relative border-t border-white/10 bg-black/30 py-14 text-center text-slate-400 backdrop-blur-xl">
       <div className="container mx-auto px-6">
-        <div className="mx-auto mb-8 flex w-fit items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-5 py-3 shadow-2xl shadow-black/20">
-          <img src={kalamyLogo} alt="Kalamy Team" className="h-9 w-9 rounded-full border border-amber-200/30 object-cover" />
-          <span className="font-display text-xl font-bold text-amber-100">Daily Question</span>
+        <div className="mx-auto mb-8 flex w-fit items-center gap-5 rounded-[2rem] border border-white/10 bg-white/[0.04] px-6 py-4 shadow-2xl shadow-black/20">
+          <img src={kalamyLogo} alt="Kalamy Team" className="h-16 w-16 shrink-0 rounded-2xl border border-amber-200/40 bg-slate-950 object-cover shadow-xl shadow-amber-950/25 sm:h-20 sm:w-20" />
+          <span className="font-display text-left text-xl font-bold leading-tight text-amber-100 sm:text-2xl">Construit par Kalamy Team</span>
         </div>
         <p className="mb-2 text-sm">© {currentYear} Daily Question. All rights reserved.</p>
         <p className="mb-8 text-sm">{t.footer.developedBy} <span className="font-semibold text-amber-100">@kalamy</span>.</p>
