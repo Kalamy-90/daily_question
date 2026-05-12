@@ -1,0 +1,22 @@
+{
+  "name": "Daily Question Bot",
+  "short_name": "Daily Question",
+  "description": "Daily Question, le bot Discord pour engager votre communauté avec des questions quotidiennes, des classements et une configuration avancée.",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#070812",
+  "background_color": "#070812",
+  "display": "standalone"
+}
