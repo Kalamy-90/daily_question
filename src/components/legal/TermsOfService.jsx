@@ -114,16 +114,17 @@ const TermsOfService = () => {
         <div className="mx-auto max-w-4xl">
           <a
             href="/"
-            className="mb-10 inline-flex items-center rounded-full border border-white/10 bg-white/[0.045] px-5 py-3 text-sm font-semibold text-slate-200 backdrop-blur-xl transition-colors hover:border-amber-200/40 hover:text-amber-100"
+            className="mb-10 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-5 py-3 text-sm font-semibold text-slate-200 backdrop-blur-xl transition-colors hover:border-amber-200/40 hover:text-amber-100"
           >
-            {t.nav.backToHome}
+            <span aria-hidden="true" className="text-base leading-none">←</span>
+            <span>{t.nav.backToHome}</span>
           </a>
 
           <header className="mb-10 text-center">
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.28em] text-amber-200/80">
               {language === 'fr' ? 'Document légal' : 'Legal document'}
             </p>
-            <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-transparent bg-clip-text sm:text-5xl"
+            <h1 className="pb-3 font-display text-4xl font-bold leading-[1.18] tracking-tight text-transparent bg-clip-text sm:text-5xl sm:leading-[1.14]"
               style={{ backgroundImage: 'linear-gradient(135deg, #fff8df 0%, #f4c974 52%, #a78bfa 100%)' }}
             >
               {current.title}

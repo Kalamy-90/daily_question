@@ -23,7 +23,7 @@ const CommandsSection = () => {
         <div className="mb-16 text-center">
           <h2 className="section-title">{t.sections.commands}</h2>
         </div>
-        <div className="mx-auto grid max-w-5xl auto-rows-fr gap-5 md:grid-cols-2">
+        <div className="mx-auto grid max-w-4xl auto-rows-fr gap-4 md:grid-cols-2">
           {currentCommands.map((command, index) => (
             <motion.div
               key={index}
@@ -35,14 +35,14 @@ const CommandsSection = () => {
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
               className="h-full"
             >
-              <Card className="premium-card h-full min-h-[178px]">
-                <CardContent className="relative z-10 grid h-full grid-cols-[4.5rem_1fr] items-center gap-6 p-7 sm:grid-cols-[5rem_1fr]">
-                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-sky-300/20 bg-sky-300/10 shadow-inner shadow-white/5 sm:h-[4.5rem] sm:w-[4.5rem] [&>svg]:block [&>svg]:h-7 [&>svg]:w-7 [&>svg]:shrink-0 [&>svg]:text-amber-200">
-                    {command.icon}
+              <Card className="premium-card h-full min-h-[132px]">
+                <CardContent className="relative z-10 grid h-full grid-cols-[3.25rem_1fr] items-center gap-4 p-5 sm:grid-cols-[3.5rem_1fr]">
+                  <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center justify-self-center rounded-xl border border-sky-300/20 bg-sky-300/10 shadow-inner shadow-white/5 sm:h-12 sm:w-12">
+                    <span className="flex h-full w-full items-center justify-center leading-none [&_svg]:block [&_svg]:!h-5 [&_svg]:!w-5 [&_svg]:shrink-0 [&_svg]:text-amber-200">{command.icon}</span>
                   </div>
                   <div className="min-w-0 self-center">
-                    <p className="command-pill mb-4 inline-flex max-w-full items-center justify-center break-all text-center">{command.name}</p>
-                    <p className="text-sm leading-6 text-slate-300 sm:text-[0.95rem]">{command.description}</p>
+                    <p className="command-pill mb-2 inline-flex max-w-full items-center justify-center break-all text-center text-xs sm:text-[0.8rem]">{command.name}</p>
+                    <p className="text-xs leading-5 text-slate-300 sm:text-[0.84rem]">{command.description}</p>
                   </div>
                 </CardContent>
               </Card>
