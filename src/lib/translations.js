@@ -1,6 +1,7 @@
 export const translations = {
   fr: {
     nav: {
+      new: "Nouveau",
       features: "Fonctionnalités",
       commands: "Commandes",
       faq: "FAQ",
@@ -38,6 +39,7 @@ export const translations = {
   },
   en: {
     nav: {
+      new: "New",
       features: "Features",
       commands: "Commands",
       faq: "FAQ",

@@ -53,7 +53,8 @@ const NewFeaturesSection = () => {
 
   return (
     <motion.section 
-      className="relative py-20 sm:py-24"
+      id="new-features"
+      className="relative py-20 sm:py-24 scroll-mt-28"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}

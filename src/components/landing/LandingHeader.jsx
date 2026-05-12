@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { MessageSquare, Users, Star, Menu as MenuIcon, X, ListChecks, HelpCircle, Zap } from 'lucide-react';
+import { MessageSquare, Users, Star, Menu as MenuIcon, X, ListChecks, HelpCircle, Zap, Sparkles } from 'lucide-react';
 import dailyQuestionLogo from '@/assets/daily-question-logo.png';
 import { useLanguage } from '@/lib/LanguageContext';
 import { translations } from '@/lib/translations';
@@ -65,6 +65,7 @@ const LandingHeader = () => {
   }, [isMobileMenuOpen]);
 
   const navLinks = [
+    { href: "#new-features", text: t.nav.new, icon: <Sparkles className="mr-3 h-5 w-5" /> },
     { href: "#features", text: t.nav.features, icon: <ListChecks className="mr-3 h-5 w-5" /> },
     { href: "#commands", text: t.nav.commands, icon: <Zap className="mr-3 h-5 w-5" /> },
     { href: "#faq", text: t.nav.faq, icon: <HelpCircle className="mr-3 h-5 w-5" /> },
@@ -89,10 +90,10 @@ const LandingHeader = () => {
         className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ease-in-out ${isScrolled ? 'border-b border-white/10 bg-[#070812]/82 shadow-2xl shadow-black/30 backdrop-blur-2xl' : 'bg-transparent'}`}
       >
         <div className="container mx-auto px-4 py-4 sm:px-6">
-          <div className="flex items-center justify-between rounded-full border border-white/10 bg-white/[0.035] px-3 py-2 shadow-2xl shadow-black/20 backdrop-blur-2xl sm:px-5">
+          <div className="flex items-center justify-between rounded-full border border-white/10 bg-white/[0.035] px-3 py-2 shadow-2xl shadow-black/20 backdrop-blur-2xl sm:px-5 md:justify-center md:gap-8 lg:gap-12 xl:gap-16">
             <motion.a 
               href="#" 
-              className="flex items-center gap-3"
+              className="flex shrink-0 items-center gap-3"
               whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
@@ -106,7 +107,7 @@ const LandingHeader = () => {
               </span>
             </motion.a>
 
-            <div className="hidden items-center sm:flex">
+            <div className="hidden items-center md:flex">
               <nav className="flex items-center gap-1 md:gap-2">
                 {navLinks.map(link => (
                   <NavLink key={link.href} href={link.href}>{link.text}</NavLink>
@@ -115,7 +116,7 @@ const LandingHeader = () => {
               <LanguageSelector />
             </div>
 
-            <div className="flex items-center gap-2 sm:hidden">
+            <div className="flex items-center gap-2 md:hidden">
               <button onClick={() => toggleLanguage('fr')} className={`rounded-full px-2 py-1 text-xs font-bold ${language === 'fr' ? 'bg-amber-300 text-slate-950' : 'text-slate-400'}`}>
                 FR
               </button>
@@ -138,7 +139,7 @@ const LandingHeader = () => {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="fixed inset-0 z-[55] bg-black/70 backdrop-blur-md sm:hidden"
+              className="fixed inset-0 z-[55] bg-black/70 backdrop-blur-md md:hidden"
               onClick={toggleMobileMenu}
             />
             <motion.div 
@@ -146,7 +147,7 @@ const LandingHeader = () => {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="fixed bottom-0 right-0 top-0 z-[60] flex w-4/5 max-w-sm flex-col border-l border-white/10 bg-[#080914]/95 p-6 shadow-2xl shadow-black sm:hidden"
+              className="fixed bottom-0 right-0 top-0 z-[60] flex w-4/5 max-w-sm flex-col border-l border-white/10 bg-[#080914]/95 p-6 shadow-2xl shadow-black md:hidden"
             >
               <div className="mb-8 flex items-center justify-between">
                 <span className="font-display text-2xl font-bold text-amber-100">{t.nav.menu}</span>
