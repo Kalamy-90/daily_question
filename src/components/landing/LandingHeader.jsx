@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { MessageSquare, Users, Star, Menu as MenuIcon, X, ListChecks, HelpCircle, Zap, Sparkles } from 'lucide-react';
+import { MessageSquare, Users, Star, Menu as MenuIcon, X, ListChecks, HelpCircle, Zap, Sparkles, Trophy, Clock3, SlidersHorizontal } from 'lucide-react';
 import dailyQuestionLogo from '@/assets/daily-question-logo.png';
 import { useLanguage } from '@/lib/LanguageContext';
 import { translations } from '@/lib/translations';
@@ -69,6 +69,18 @@ const LandingHeader = () => {
     { href: "#commands", text: t.nav.commands, icon: <Zap className="mr-3 h-5 w-5" /> },
     { href: "#faq", text: t.nav.faq, icon: <HelpCircle className="mr-3 h-5 w-5" /> },
   ];
+
+  const heroHighlights = language === 'fr'
+    ? [
+        { icon: <Clock3 className="h-4 w-4" />, label: 'Questions automatiques' },
+        { icon: <Trophy className="h-4 w-4" />, label: 'Classement dynamique' },
+        { icon: <SlidersHorizontal className="h-4 w-4" />, label: 'Configuration premium' },
+      ]
+    : [
+        { icon: <Clock3 className="h-4 w-4" />, label: 'Automated questions' },
+        { icon: <Trophy className="h-4 w-4" />, label: 'Dynamic leaderboard' },
+        { icon: <SlidersHorizontal className="h-4 w-4" />, label: 'Premium setup' },
+      ];
 
   const mobileMenuVariants = {
     hidden: { x: "100%" },
@@ -170,7 +182,7 @@ const LandingHeader = () => {
         )}
       </AnimatePresence>
 
-      <section className="relative overflow-hidden px-4 pb-20 pt-32 text-center sm:pb-28 sm:pt-40">
+      <section className="relative overflow-hidden px-4 pb-20 pt-32 text-center sm:pb-28 sm:pt-36">
         <div className="absolute left-1/2 top-20 h-80 w-80 -translate-x-1/2 rounded-full bg-amber-300/10 blur-3xl" aria-hidden="true" />
         <div className="container relative mx-auto px-2 sm:px-6">
           <motion.div
@@ -179,9 +191,19 @@ const LandingHeader = () => {
             transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
             className="mx-auto max-w-5xl"
           >
-            <div className="mb-8 inline-flex items-center rounded-full border border-amber-200/20 bg-amber-200/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-amber-100 shadow-xl shadow-black/20 backdrop-blur-xl">
+            <div className="mb-5 inline-flex items-center rounded-full border border-amber-200/20 bg-amber-200/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-amber-100 shadow-xl shadow-black/20 backdrop-blur-xl">
               <Sparkles className="mr-2 h-4 w-4" /> Premium Discord Experience
             </div>
+
+            <div className="mx-auto mb-7 flex max-w-3xl flex-wrap items-center justify-center gap-2.5">
+              {heroHighlights.map((item) => (
+                <div key={item.label} className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-3.5 py-2 text-xs font-semibold text-slate-200 shadow-lg shadow-black/10 backdrop-blur-xl">
+                  <span className="text-amber-200">{item.icon}</span>
+                  {item.label}
+                </div>
+              ))}
+            </div>
+
             <motion.img
               src={dailyQuestionLogo}
               alt="Logo Daily Question"
@@ -193,33 +215,37 @@ const LandingHeader = () => {
               {t.hero.title}
             </h1>
             <p className="mx-auto mb-5 max-w-3xl text-xl font-semibold text-amber-100/90 sm:text-2xl md:text-3xl">{t.hero.subtitle}</p>
-            <p className="mx-auto mb-11 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg md:text-xl">
+            <p className="mx-auto mb-10 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg md:text-xl">
               {t.hero.description}
             </p>
-            <div className="flex flex-col flex-wrap justify-center gap-4 sm:flex-row sm:gap-5">
+
+            <div className="flex flex-col items-center gap-4">
               <Button 
                 size="lg" 
-                className="premium-button w-full sm:w-auto"
+                className="premium-button w-full max-w-md justify-center px-10 py-7 text-sm sm:w-auto sm:min-w-[360px]"
                 onClick={() => window.open('https://discord.com/oauth2/authorize?client_id=1181626669795119105', '_blank')}
               >
                 <MessageSquare className="mr-2 h-5 w-5" /> {t.nav.invite}
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="premium-button-secondary w-full sm:w-auto"
-                onClick={() => window.open('https://discord.gg/wE6vjjCXW3', '_blank')}
-              >
-                <Users className="mr-2 h-5 w-5" /> {t.nav.support}
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="premium-button-secondary w-full border-amber-200/25 text-amber-100 sm:w-auto"
-                onClick={() => window.open('https://top.gg/bot/1181626669795119105', '_blank')}
-              >
-                <Star className="mr-2 h-5 w-5" /> {t.nav.vote}
-              </Button>
+
+              <div className="flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="premium-button-secondary w-full sm:w-auto"
+                  onClick={() => window.open('https://discord.gg/wE6vjjCXW3', '_blank')}
+                >
+                  <Users className="mr-2 h-5 w-5" /> {t.nav.support}
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="premium-button-secondary w-full border-amber-200/25 text-amber-100 sm:w-auto"
+                  onClick={() => window.open('https://top.gg/bot/1181626669795119105', '_blank')}
+                >
+                  <Star className="mr-2 h-5 w-5" /> {t.nav.vote}
+                </Button>
+              </div>
             </div>
           </motion.div>
         </div>

@@ -1,14 +1,29 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { MessageSquare, RotateCcw, Shield, CheckSquare, Pause, Maximize2, ListChecks, Sparkles } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { MessageSquare, RotateCcw, Shield, CheckSquare, Pause, Maximize2, ListChecks, Sparkles, ChevronDown, ChevronUp } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import { translations } from '@/lib/translations';
 
 const iconClass = "h-7 w-7 text-amber-200";
 
+const labels = {
+  fr: {
+    eyebrow: 'Release notes essentielles',
+    showAll: 'Voir toutes les nouvelles fonctionnalités',
+    showLess: 'Réduire les nouvelles fonctionnalités',
+  },
+  en: {
+    eyebrow: 'Essential release notes',
+    showAll: 'View all new features',
+    showLess: 'Show fewer new features',
+  },
+};
+
 const NewFeaturesSection = () => {
+  const [showAll, setShowAll] = useState(false);
   const { language } = useLanguage();
   const t = translations[language];
 
@@ -36,6 +51,8 @@ const NewFeaturesSection = () => {
   };
 
   const currentNewFeatures = newFeatures[language] || newFeatures.fr;
+  const visibleFeatures = showAll ? currentNewFeatures : currentNewFeatures.slice(0, 3);
+  const copy = labels[language] || labels.fr;
 
   return (
     <motion.section 
@@ -47,42 +64,57 @@ const NewFeaturesSection = () => {
     >
       <div className="container mx-auto px-6">
         <div className="mb-14 text-center">
-          <span className="section-eyebrow"><Sparkles className="mr-2 h-4 w-4" /> Release notes</span>
+          <span className="section-eyebrow"><Sparkles className="mr-2 h-4 w-4" /> {copy.eyebrow}</span>
           <h2 className="section-title">{t.sections.newFeatures}</h2>
           <p className="section-subtitle">{t.sections.newFeaturesSub}</p>
         </div>
         
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {currentNewFeatures.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ delay: index * 0.06, duration: 0.5 }}
-              whileHover={{ y: -7, transition: { duration: 0.2 } }}
-              className="h-full"
-            >
-              <Card className="premium-card h-full">
-                <CardHeader className="relative z-10 pb-4">
-                  <div className="mb-5 flex items-center justify-between">
-                    <div className="rounded-2xl border border-amber-200/20 bg-amber-200/10 p-3 shadow-inner shadow-amber-950/20">{feature.icon}</div>
-                    <Badge className="border border-emerald-300/20 bg-emerald-300/10 text-emerald-100 shadow-none">
-                      {feature.badge}
-                    </Badge>
-                  </div>
-                  <CardTitle className="text-xl font-bold leading-tight text-slate-50">
-                    {feature.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="relative z-10">
-                  <CardDescription className="text-sm leading-7 text-slate-300">
-                    {feature.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+        <AnimatePresence mode="popLayout">
+          <motion.div layout className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {visibleFeatures.map((feature, index) => (
+              <motion.div
+                layout
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay: Math.min(index, 3) * 0.05, duration: 0.45 }}
+                whileHover={{ y: -7, transition: { duration: 0.2 } }}
+                className="h-full"
+              >
+                <Card className="premium-card h-full">
+                  <CardHeader className="relative z-10 pb-4">
+                    <div className="mb-5 flex items-center justify-between">
+                      <div className="rounded-2xl border border-amber-200/20 bg-amber-200/10 p-3 shadow-inner shadow-amber-950/20">{feature.icon}</div>
+                      <Badge className="border border-emerald-300/20 bg-emerald-300/10 text-emerald-100 shadow-none">
+                        {feature.badge}
+                      </Badge>
+                    </div>
+                    <CardTitle className="text-xl font-bold leading-tight text-slate-50">
+                      {feature.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="relative z-10">
+                    <CardDescription className="text-sm leading-7 text-slate-300">
+                      {feature.description}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+
+        <div className="mt-10 flex justify-center">
+          <Button
+            variant="outline"
+            className="premium-button-secondary min-w-[280px] justify-center"
+            onClick={() => setShowAll((value) => !value)}
+          >
+            {showAll ? <ChevronUp className="mr-2 h-4 w-4" /> : <ChevronDown className="mr-2 h-4 w-4" />}
+            {showAll ? copy.showLess : copy.showAll}
+          </Button>
         </div>
       </div>
     </motion.section>
