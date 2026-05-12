@@ -22,7 +22,7 @@ const FaqSection = () => {
     >
       <div className="container mx-auto px-6">
         <div className="mb-16 text-center">
-          <h2 className="section-title">{t.sections.faq}</h2>
+          <h2 className="bg-gradient-to-br from-[#fff8df] via-[#f4c974] to-violet-400 bg-clip-text font-sans text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl">{t.sections.faq}</h2>
         </div>
         <Accordion type="single" collapsible className="mx-auto max-w-3xl space-y-4">
           {currentFaq.map((item, index) => (
