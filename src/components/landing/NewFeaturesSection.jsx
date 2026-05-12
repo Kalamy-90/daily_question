@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { MessageSquare, RotateCcw, Shield, CheckSquare, Pause, Maximize2, ListChecks, ChevronDown, ChevronUp } from 'lucide-react';
+import { MessageSquare, RotateCcw, Shield, CheckSquare, Pause, Maximize2, ListChecks, ChevronDown, ChevronUp, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import { translations } from '@/lib/translations';
 
@@ -81,8 +81,12 @@ const NewFeaturesSection = () => {
               >
                 <Card className="premium-card h-full">
                   <CardHeader className="relative z-10 pb-4">
-                    <div className="mb-5 flex items-center">
+                    <div className="mb-5 flex items-center justify-between gap-4 pr-1">
                       <div className="rounded-2xl border border-amber-200/20 bg-amber-200/10 p-3 shadow-inner shadow-amber-950/20">{feature.icon}</div>
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200/25 bg-amber-200/10 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-amber-100 shadow-[0_0_18px_rgba(245,197,96,0.12)]">
+                        <Sparkles aria-hidden="true" className="h-3 w-3" strokeWidth={1.8} />
+                        {t.sections.newBadge}
+                      </span>
                     </div>
                     <CardTitle className="text-xl font-bold leading-tight text-slate-50">
                       {feature.title}
