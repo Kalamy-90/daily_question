@@ -16,7 +16,7 @@ const PageFooter = () => {
           <span className="font-display text-left text-base font-bold leading-tight text-amber-100 sm:text-lg">{t.footer.builtBy}</span>
         </div>
         <p className="mb-2 text-sm">© {currentYear} Daily Question. {t.footer.rightsReserved}</p>
-        <p className="mb-8 text-sm">{t.footer.developedBy} <span className="font-semibold text-amber-100">@kalamy</span>.</p>
+        <p className="mb-8 text-sm">{t.footer.developedBy} <span className="font-semibold text-amber-100">@kalamy_yt</span>.</p>
         <nav className="mb-8 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm font-semibold">
           <a href="https://discord.com/oauth2/authorize?client_id=1181626669795119105" target="_blank" rel="noopener noreferrer" className="text-slate-300 transition-colors hover:text-amber-100">{t.nav.invite}</a>
           <a href="https://discord.gg/wE6vjjCXW3" target="_blank" rel="noopener noreferrer" className="text-slate-300 transition-colors hover:text-amber-100">{t.nav.support}</a>
