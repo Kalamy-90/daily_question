@@ -108,48 +108,59 @@ const TermsOfService = () => {
   const current = content[language] || content.fr;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-gray-100 font-sans">
-      <div className="container mx-auto px-6 py-12">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold text-center mb-8 text-purple-300">
-            {current.title}
-          </h1>
-          
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-8 mb-8">
-            <p className="text-gray-300 mb-6">
-              <strong>{language === 'fr' ? 'Dernière mise à jour :' : 'Last updated:'}</strong> {current.lastUpdated}
-            </p>
-            
-            <p className="text-gray-300 mb-6">
-              {current.intro}
-            </p>
+    <div className="site-shell min-h-screen text-slate-100">
+      <div className="luxury-noise" />
+      <div className="relative z-10 container mx-auto px-6 py-10 sm:py-14">
+        <div className="mx-auto max-w-4xl">
+          <a
+            href="/"
+            className="mb-10 inline-flex items-center rounded-full border border-white/10 bg-white/[0.045] px-5 py-3 text-sm font-semibold text-slate-200 backdrop-blur-xl transition-colors hover:border-amber-200/40 hover:text-amber-100"
+          >
+            {t.nav.backToHome}
+          </a>
 
-            {current.sections.map((section, idx) => (
-              <section key={idx} className="mb-8">
-                <h2 className="text-2xl font-semibold text-purple-300 mb-4">{section.title}</h2>
-                <p className="text-gray-300 mb-4">{section.text}</p>
-                {section.list && (
-                  <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4 mb-4">
-                    {section.list.map((item, i) => (
-                      <li key={i}>{item}</li>
-                    ))}
-                  </ul>
-                )}
-                {section.extra && (
-                  <p className="text-gray-300">{section.extra}</p>
-                )}
-              </section>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <a 
-              href="/" 
-              className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+          <header className="mb-10 text-center">
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.28em] text-amber-200/80">
+              {language === 'fr' ? 'Document légal' : 'Legal document'}
+            </p>
+            <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-transparent bg-clip-text sm:text-5xl"
+              style={{ backgroundImage: 'linear-gradient(135deg, #fff8df 0%, #f4c974 52%, #a78bfa 100%)' }}
             >
-              {t.nav.backToHome}
-            </a>
-          </div>
+              {current.title}
+            </h1>
+          </header>
+          
+          <article className="premium-card p-7 sm:p-10">
+            <div className="relative z-10">
+              <p className="mb-7 rounded-2xl border border-amber-200/15 bg-amber-200/10 px-5 py-4 text-sm text-amber-100">
+                <strong>{language === 'fr' ? 'Dernière mise à jour :' : 'Last updated:'}</strong> {current.lastUpdated}
+              </p>
+              
+              <p className="mb-10 text-base leading-8 text-slate-300">
+                {current.intro}
+              </p>
+
+              {current.sections.map((section, idx) => (
+                <section key={idx} className="border-t border-white/10 py-8 first:border-t-0 first:pt-0 last:pb-0">
+                  <h2 className="mb-4 font-display text-2xl font-semibold text-amber-100">{section.title}</h2>
+                  <p className="mb-4 leading-8 text-slate-300">{section.text}</p>
+                  {section.list && (
+                    <ul className="mb-4 space-y-3 text-slate-300">
+                      {section.list.map((item, i) => (
+                        <li key={i} className="flex gap-3 leading-7">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-300" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {section.extra && (
+                    <p className="leading-8 text-slate-300">{section.extra}</p>
+                  )}
+                </section>
+              ))}
+            </div>
+          </article>
         </div>
       </div>
     </div>
