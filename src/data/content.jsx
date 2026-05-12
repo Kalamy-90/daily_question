@@ -110,24 +110,24 @@ export const featuresData = {
 
 export const commandsData = {
   fr: [
-    { name: "/config", description: "Configuration complète (Admin).", icon: <Settings className="mr-2 h-5 w-5 text-blue-500" /> },
-    { name: "/test_question [délai]", description: "Tester le système (Admin). Peut être annulée à tout moment.", icon: <PlayCircle className="mr-2 h-5 w-5 text-green-500" /> },
-    { name: "/help", description: "Aide et liste des commandes.", icon: <HelpCircle className="mr-2 h-5 w-5 text-yellow-500" /> },
-    { name: "/questions_perso", description: "Gérer vos questions (Admin). Suivi et réinitialisation du cycle.", icon: <Edit3 className="mr-2 h-5 w-5 text-indigo-500" /> },
-    { name: "/classement", description: "Afficher le classement.", icon: <BarChart2 className="mr-2 h-5 w-5 text-purple-500" /> },
-    { name: "/gestion_classement", description: "Gérer les points, les rôles de podium et la réinitialisation du classement (Admin).", icon: <ListChecks className="mr-2 h-5 w-5 text-orange-500" /> },
-    { name: "/ban, /unban, /listban", description: "Modération des joueurs (Admin).", icon: <UserCheck className="mr-2 h-5 w-5 text-red-500" /> },
-    { name: "/langue", description: "Changer la langue du bot (Français par défaut, option Anglais).", icon: <Languages className="mr-2 h-5 w-5 text-teal-500" /> },
+    { name: "/config", description: "Configuration complète (Admin).", icon: <Settings className="h-5 w-5 text-blue-500" /> },
+    { name: "/test_question [délai]", description: "Tester le système (Admin). Peut être annulée à tout moment.", icon: <PlayCircle className="h-5 w-5 text-green-500" /> },
+    { name: "/help", description: "Aide et liste des commandes.", icon: <HelpCircle className="h-5 w-5 text-yellow-500" /> },
+    { name: "/questions_perso", description: "Gérer vos questions (Admin). Suivi et réinitialisation du cycle.", icon: <Edit3 className="h-5 w-5 text-indigo-500" /> },
+    { name: "/classement", description: "Afficher le classement.", icon: <BarChart2 className="h-5 w-5 text-purple-500" /> },
+    { name: "/gestion_classement", description: "Gérer les points, les rôles de podium et la réinitialisation du classement (Admin).", icon: <ListChecks className="h-5 w-5 text-orange-500" /> },
+    { name: "/ban, /unban, /listban", description: "Modération des joueurs (Admin).", icon: <UserCheck className="h-5 w-5 text-red-500" /> },
+    { name: "/langue", description: "Changer la langue du bot (Français par défaut, option Anglais).", icon: <Languages className="h-5 w-5 text-teal-500" /> },
   ],
   en: [
-    { name: "/config", description: "Complete configuration (Admin).", icon: <Settings className="mr-2 h-5 w-5 text-blue-500" /> },
-    { name: "/test_question [delay]", description: "Test the system (Admin). Can be canceled at any time.", icon: <PlayCircle className="mr-2 h-5 w-5 text-green-500" /> },
-    { name: "/help", description: "Help and command list.", icon: <HelpCircle className="mr-2 h-5 w-5 text-yellow-500" /> },
-    { name: "/custom_questions", description: "Manage your questions (Admin). Cycle tracking and reset.", icon: <Edit3 className="mr-2 h-5 w-5 text-indigo-500" /> },
-    { name: "/leaderboard", description: "Display the leaderboard.", icon: <BarChart2 className="mr-2 h-5 w-5 text-purple-500" /> },
-    { name: "/manage_leaderboard", description: "Manage points, podium roles, and leaderboard reset (Admin).", icon: <ListChecks className="mr-2 h-5 w-5 text-orange-500" /> },
-    { name: "/ban, /unban, /listban", description: "Player moderation (Admin).", icon: <UserCheck className="mr-2 h-5 w-5 text-red-500" /> },
-    { name: "/language", description: "Change the bot's language (French by default, English option).", icon: <Languages className="mr-2 h-5 w-5 text-teal-500" /> },
+    { name: "/config", description: "Complete configuration (Admin).", icon: <Settings className="h-5 w-5 text-blue-500" /> },
+    { name: "/test_question [delay]", description: "Test the system (Admin). Can be canceled at any time.", icon: <PlayCircle className="h-5 w-5 text-green-500" /> },
+    { name: "/help", description: "Help and command list.", icon: <HelpCircle className="h-5 w-5 text-yellow-500" /> },
+    { name: "/custom_questions", description: "Manage your questions (Admin). Cycle tracking and reset.", icon: <Edit3 className="h-5 w-5 text-indigo-500" /> },
+    { name: "/leaderboard", description: "Display the leaderboard.", icon: <BarChart2 className="h-5 w-5 text-purple-500" /> },
+    { name: "/manage_leaderboard", description: "Manage points, podium roles, and leaderboard reset (Admin).", icon: <ListChecks className="h-5 w-5 text-orange-500" /> },
+    { name: "/ban, /unban, /listban", description: "Player moderation (Admin).", icon: <UserCheck className="h-5 w-5 text-red-500" /> },
+    { name: "/language", description: "Change the bot's language (French by default, English option).", icon: <Languages className="h-5 w-5 text-teal-500" /> },
   ]
 };
 

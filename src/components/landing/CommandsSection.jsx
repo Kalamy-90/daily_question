@@ -36,9 +36,9 @@ const CommandsSection = () => {
               className="h-full"
             >
               <Card className="premium-card h-full min-h-[132px]">
-                <CardContent className="relative z-10 grid h-full grid-cols-[3.25rem_1fr] items-center gap-4 p-5 sm:grid-cols-[3.5rem_1fr]">
-                  <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center justify-self-center rounded-xl border border-sky-300/20 bg-sky-300/10 shadow-inner shadow-white/5 sm:h-12 sm:w-12">
-                    <span className="flex h-full w-full items-center justify-center leading-none [&_svg]:block [&_svg]:!h-5 [&_svg]:!w-5 [&_svg]:shrink-0 [&_svg]:text-amber-200">{command.icon}</span>
+                <CardContent className="relative z-10 grid h-full grid-cols-[3rem_1fr] items-center gap-4 p-5 sm:grid-cols-[3.15rem_1fr]">
+                  <div className="grid h-10 w-10 shrink-0 place-items-center justify-self-center rounded-xl border border-sky-300/20 bg-sky-300/10 shadow-inner shadow-white/5 sm:h-11 sm:w-11">
+                    <span className="grid h-full w-full place-items-center leading-[0] [&>svg]:m-auto [&_svg]:!block [&_svg]:!h-[1.15rem] [&_svg]:!w-[1.15rem] [&_svg]:shrink-0 [&_svg]:text-amber-200 sm:[&_svg]:!h-5 sm:[&_svg]:!w-5">{command.icon}</span>
                   </div>
                   <div className="min-w-0 self-center">
                     <p className="command-pill mb-2 inline-flex max-w-full items-center justify-center break-all text-center text-xs sm:text-[0.8rem]">{command.name}</p>

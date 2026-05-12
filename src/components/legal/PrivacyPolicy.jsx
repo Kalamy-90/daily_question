@@ -148,10 +148,10 @@ const PrivacyPolicy = () => {
         <div className="mx-auto max-w-4xl">
           <a
             href="/"
-            className="mb-10 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-5 py-3 text-sm font-semibold text-slate-200 backdrop-blur-xl transition-colors hover:border-amber-200/40 hover:text-amber-100"
+            className="mb-10 inline-flex h-11 items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-5 text-sm font-semibold leading-none text-slate-200 backdrop-blur-xl transition-colors hover:border-amber-200/40 hover:text-amber-100"
           >
-            <span aria-hidden="true" className="text-base leading-none">←</span>
-            <span>{t.nav.backToHome}</span>
+            <span aria-hidden="true" className="inline-flex h-4 w-4 items-center justify-center text-base leading-none">←</span>
+            <span className="inline-flex h-4 items-center leading-none">{t.nav.backToHome}</span>
           </a>
 
           <header className="mb-10 text-center">
