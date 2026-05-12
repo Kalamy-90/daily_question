@@ -23,14 +23,16 @@ export const translations = {
       mainFeatures: "Fonctionnalités Principales",
       commands: "Commandes du Bot",
       howToStart: "Comment Démarrer ?",
-      faq: "F.A.Q",
+      faq: "FAQ",
       faqSub: "D'autres questions ? Rejoignez notre serveur de support !",
       learnMore: "En savoir plus",
       close: "Fermer",
       newBadge: "Nouveau"
     },
     footer: {
+      builtBy: "Construit par Kalamy's team",
       developedBy: "Développé par :",
+      rightsReserved: "Tous droits réservés.",
       technology: "Technologie : Python (discord.py), pytz, stockage JSON."
     }
   },
@@ -58,14 +60,16 @@ export const translations = {
       mainFeatures: "Main Features",
       commands: "Bot Commands",
       howToStart: "How to Start?",
-      faq: "F.A.Q",
+      faq: "FAQ",
       faqSub: "Other questions? Join our support server!",
       learnMore: "Learn more",
       close: "Close",
       newBadge: "New"
     },
     footer: {
+      builtBy: "Build by Kalamy's team",
       developedBy: "Developed by:",
+      rightsReserved: "All rights reserved.",
       technology: "Technology: Python (discord.py), pytz, JSON storage."
     }
   }
