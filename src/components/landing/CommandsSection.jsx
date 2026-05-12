@@ -21,7 +21,6 @@ const CommandsSection = () => {
     >
       <div className="container mx-auto px-6">
         <div className="mb-16 text-center">
-          <span className="section-eyebrow">Command Center</span>
           <h2 className="section-title">{t.sections.commands}</h2>
         </div>
         <div className="mx-auto grid max-w-5xl gap-5 md:grid-cols-2">

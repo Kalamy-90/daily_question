@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { MessageSquare, Users, Star, Menu as MenuIcon, X, ListChecks, HelpCircle, Zap, Sparkles, Trophy, Clock3, SlidersHorizontal } from 'lucide-react';
+import { MessageSquare, Users, Star, Menu as MenuIcon, X, ListChecks, HelpCircle, Zap } from 'lucide-react';
 import dailyQuestionLogo from '@/assets/daily-question-logo.png';
 import { useLanguage } from '@/lib/LanguageContext';
 import { translations } from '@/lib/translations';
@@ -70,17 +70,6 @@ const LandingHeader = () => {
     { href: "#faq", text: t.nav.faq, icon: <HelpCircle className="mr-3 h-5 w-5" /> },
   ];
 
-  const heroHighlights = language === 'fr'
-    ? [
-        { icon: <Clock3 className="h-4 w-4" />, label: 'Questions automatiques' },
-        { icon: <Trophy className="h-4 w-4" />, label: 'Classement dynamique' },
-        { icon: <SlidersHorizontal className="h-4 w-4" />, label: 'Configuration premium' },
-      ]
-    : [
-        { icon: <Clock3 className="h-4 w-4" />, label: 'Automated questions' },
-        { icon: <Trophy className="h-4 w-4" />, label: 'Dynamic leaderboard' },
-        { icon: <SlidersHorizontal className="h-4 w-4" />, label: 'Premium setup' },
-      ];
 
   const mobileMenuVariants = {
     hidden: { x: "100%" },
@@ -191,19 +180,6 @@ const LandingHeader = () => {
             transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
             className="mx-auto max-w-5xl"
           >
-            <div className="mb-5 inline-flex items-center rounded-full border border-amber-200/20 bg-amber-200/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-amber-100 shadow-xl shadow-black/20 backdrop-blur-xl">
-              <Sparkles className="mr-2 h-4 w-4" /> Premium Discord Experience
-            </div>
-
-            <div className="mx-auto mb-7 flex max-w-3xl flex-wrap items-center justify-center gap-2.5">
-              {heroHighlights.map((item) => (
-                <div key={item.label} className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-3.5 py-2 text-xs font-semibold text-slate-200 shadow-lg shadow-black/10 backdrop-blur-xl">
-                  <span className="text-amber-200">{item.icon}</span>
-                  {item.label}
-                </div>
-              ))}
-            </div>
-
             <motion.img
               src={dailyQuestionLogo}
               alt="Logo Daily Question"

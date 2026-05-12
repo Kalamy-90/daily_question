@@ -22,7 +22,6 @@ const FaqSection = () => {
     >
       <div className="container mx-auto px-6">
         <div className="mb-16 text-center">
-          <span className="section-eyebrow">Support</span>
           <h2 className="section-title">{t.sections.faq}</h2>
         </div>
         <Accordion type="single" collapsible className="mx-auto max-w-3xl space-y-4">

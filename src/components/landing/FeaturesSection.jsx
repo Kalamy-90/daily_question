@@ -10,12 +10,10 @@ import { ArrowUpRight, ChevronDown, ChevronUp } from 'lucide-react';
 
 const labels = {
   fr: {
-    eyebrow: 'Suite principale',
     showAll: 'Voir toutes les fonctionnalités',
     showLess: 'Réduire les fonctionnalités',
   },
   en: {
-    eyebrow: 'Core suite',
     showAll: 'View all features',
     showLess: 'Show fewer features',
   },
@@ -58,7 +56,6 @@ const FeaturesSection = () => {
       >
         <div className="container mx-auto px-6">
           <div className="mb-16 text-center">
-            <span className="section-eyebrow">{copy.eyebrow}</span>
             <h2 className="section-title">{t.sections.mainFeatures}</h2>
           </div>
           <AnimatePresence mode="popLayout">

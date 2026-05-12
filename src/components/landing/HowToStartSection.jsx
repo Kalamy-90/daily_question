@@ -21,7 +21,6 @@ const HowToStartSection = () => {
     >
       <div className="container mx-auto px-6">
         <div className="mb-16 text-center">
-          <span className="section-eyebrow">Onboarding</span>
           <h2 className="section-title">{t.sections.howToStart}</h2>
         </div>
         <div className="mx-auto max-w-3xl space-y-6">
