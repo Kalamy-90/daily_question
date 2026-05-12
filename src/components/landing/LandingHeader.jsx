@@ -90,7 +90,7 @@ const LandingHeader = () => {
         className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ease-in-out ${isScrolled ? 'border-b border-white/10 bg-[#070812]/82 shadow-2xl shadow-black/30 backdrop-blur-2xl' : 'bg-transparent'}`}
       >
         <div className="container mx-auto px-4 py-4 sm:px-6">
-          <div className="mx-auto flex w-full max-w-[1040px] items-center justify-between rounded-full border border-white/10 bg-white/[0.035] px-3 py-2 shadow-2xl shadow-black/20 backdrop-blur-2xl sm:px-5 md:justify-center md:gap-8 lg:gap-10 xl:gap-12">
+          <div className="mx-auto flex w-full items-center justify-between rounded-full border border-white/10 bg-white/[0.035] px-3 py-2 shadow-2xl shadow-black/20 backdrop-blur-2xl sm:px-5 md:w-fit md:max-w-[calc(100vw-2rem)] md:justify-center md:gap-5 lg:gap-6">
             <motion.a 
               href="#" 
               className="flex shrink-0 items-center gap-3"
@@ -107,7 +107,7 @@ const LandingHeader = () => {
               </span>
             </motion.a>
 
-            <div className="hidden items-center md:flex">
+            <div className="hidden items-center md:flex md:gap-2">
               <nav className="flex items-center gap-1 md:gap-2">
                 {navLinks.map(link => (
                   <NavLink key={link.href} href={link.href}>{link.text}</NavLink>
