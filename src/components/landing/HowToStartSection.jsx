@@ -13,15 +13,18 @@ const HowToStartSection = () => {
   return (
     <motion.section 
       id="how-to-start" 
-      className="py-20 bg-slate-800 bg-opacity-50 backdrop-blur-md"
+      className="relative border-y border-white/10 bg-white/[0.025] py-24 backdrop-blur-sm"
       variants={sectionAnimation}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
     >
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-500">{t.sections.howToStart}</h2>
-        <div className="max-w-2xl mx-auto space-y-8">
+        <div className="mb-16 text-center">
+          <span className="section-eyebrow">Onboarding</span>
+          <h2 className="section-title">{t.sections.howToStart}</h2>
+        </div>
+        <div className="mx-auto max-w-3xl space-y-6">
           {currentSteps.map((step, index) => (
             <motion.div
               key={index}
@@ -30,12 +33,17 @@ const HowToStartSection = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.5 }}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              whileHover={{ x: 8, transition: { duration: 0.2 } }}
             >
-              <Card className="bg-slate-700 bg-opacity-70 border-yellow-500 border-2 shadow-lg hover:shadow-yellow-500/40 transition-shadow duration-300">
-                <CardContent className="p-6 flex items-center">
-                  {step.icon}
-                  <p className="text-xl text-yellow-300">{step.text}</p>
+              <Card className="premium-card">
+                <CardContent className="relative z-10 flex items-center gap-5 p-6">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-amber-200/25 bg-amber-200/10 text-sm font-extrabold text-amber-100">
+                    {String(index + 1).padStart(2, '0')}
+                  </div>
+                  <div className="flex items-center text-base font-semibold leading-7 text-slate-100 [&_svg]:text-amber-200">
+                    {step.icon}
+                    <span>{step.text}</span>
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>

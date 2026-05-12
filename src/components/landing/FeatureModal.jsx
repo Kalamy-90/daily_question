@@ -1,8 +1,8 @@
 import React from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
+import { X } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import { translations } from '@/lib/translations';
 
@@ -14,48 +14,39 @@ const FeatureModal = ({ isOpen, onClose, title, description, icon }) => {
 
   return (
     <AnimatePresence>
-      {isOpen && (
-        <Dialog open={isOpen} onOpenChange={onClose}>
-          <DialogContent className="bg-slate-800 border-purple-600 text-gray-100 p-0 max-w-lg w-[90vw] rounded-xl shadow-2xl">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="flex flex-col"
-            >
-              <DialogHeader className="p-6 pr-16 relative bg-slate-800 rounded-t-xl">
-                <div className="flex items-center space-x-4">
-                  {React.cloneElement(icon, { className: "h-8 w-8 text-purple-400" })}
-                  <DialogTitle className="text-2xl font-bold text-purple-300">{title}</DialogTitle>
+      <Dialog open={isOpen} onOpenChange={onClose}>
+        <DialogContent className="premium-card max-h-[85vh] w-[92vw] max-w-xl border-amber-200/20 bg-[#080914]/95 p-0 text-slate-100 shadow-2xl shadow-black/60">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.96 }}
+            transition={{ duration: 0.2 }}
+            className="relative z-10"
+          >
+            <DialogHeader className="border-b border-white/10 p-7 pr-16 text-left">
+              <div className="mb-5 flex items-center gap-4">
+                <div className="rounded-2xl border border-amber-200/25 bg-amber-200/10 p-3 [&_svg]:h-7 [&_svg]:w-7 [&_svg]:text-amber-200">
+                  {icon}
                 </div>
-                <Button 
-                    variant="ghost" 
-                    size="icon"
-                    className="absolute top-4 right-4 text-gray-400 hover:text-gray-200 hover:bg-slate-700 rounded-full"
-                    onClick={onClose}
-                >
-                    <X className="h-5 w-5" />
-                    <span className="sr-only">{t.sections.close}</span>
-                </Button>
-              </DialogHeader>
-              <div className="p-6 max-h-[60vh] overflow-y-auto bg-slate-800 flex-grow">
-                <DialogDescription className="text-md text-gray-300 whitespace-pre-line">
-                  {description}
-                </DialogDescription>
+                <DialogTitle className="font-display text-3xl font-bold text-amber-100">{title}</DialogTitle>
               </div>
-              <div className="px-6 py-4 bg-slate-800 rounded-b-xl flex justify-end border-t border-slate-700">
-                <Button 
-                  onClick={onClose}
-                  className="bg-purple-600 hover:bg-purple-700 text-white"
-                >
-                  {t.sections.close}
-                </Button>
-              </div>
-            </motion.div>
-          </DialogContent>
-        </Dialog>
-      )}
+            </DialogHeader>
+            <Button variant="ghost" size="icon" onClick={onClose} className="absolute right-4 top-4 rounded-full text-slate-300 hover:bg-white/10 hover:text-white">
+              <X className="h-5 w-5" />
+            </Button>
+            <div className="max-h-[48vh] overflow-y-auto p-7">
+              <DialogDescription className="text-base leading-8 text-slate-300">
+                {description}
+              </DialogDescription>
+            </div>
+            <div className="border-t border-white/10 p-6 text-right">
+              <Button onClick={onClose} className="premium-button px-6 py-5">
+                {t.sections.close}
+              </Button>
+            </div>
+          </motion.div>
+        </DialogContent>
+      </Dialog>
     </AnimatePresence>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { MessageSquare, Users, Star, Menu as MenuIcon, X, ListChecks, HelpCircle, Zap } from 'lucide-react';
+import { MessageSquare, Users, Star, Menu as MenuIcon, X, ListChecks, HelpCircle, Zap, Sparkles } from 'lucide-react';
 import dailyQuestionLogo from '@/assets/daily-question-logo.png';
 import { useLanguage } from '@/lib/LanguageContext';
 import { translations } from '@/lib/translations';
@@ -10,7 +10,7 @@ const NavLink = ({ href, children, onClick, className = "" }) => (
   <a
     href={href}
     onClick={onClick}
-    className={`block text-sm sm:text-base text-purple-300 hover:text-pink-400 transition-colors duration-300 py-2 ${className}`}
+    className={`rounded-full px-4 py-2 text-sm font-semibold text-slate-300 transition-all duration-300 hover:bg-white/7 hover:text-amber-100 ${className}`}
   >
     {children}
   </a>
@@ -20,20 +20,20 @@ const LanguageSelector = () => {
   const { language, toggleLanguage } = useLanguage();
   
   return (
-    <div className="flex items-center space-x-2 ml-4 border-l border-slate-700 pl-4">
+    <div className="ml-3 flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] p-1.5 backdrop-blur-xl">
       <button 
         onClick={() => toggleLanguage('fr')}
-        className={`transition-all duration-200 hover:scale-110 ${language === 'fr' ? 'opacity-100 ring-2 ring-purple-500 rounded-sm' : 'opacity-50 hover:opacity-80'}`}
+        className={`rounded-full px-2.5 py-1 text-xs font-bold transition-all duration-200 ${language === 'fr' ? 'bg-amber-300 text-slate-950 shadow-lg shadow-amber-900/20' : 'text-slate-400 hover:text-white'}`}
         title="Français"
       >
-        <img src="https://flagcdn.com/w40/fr.png" alt="FR" className="w-6 h-4 object-cover" />
+        FR
       </button>
       <button 
         onClick={() => toggleLanguage('en')}
-        className={`transition-all duration-200 hover:scale-110 ${language === 'en' ? 'opacity-100 ring-2 ring-purple-500 rounded-sm' : 'opacity-50 hover:opacity-80'}`}
+        className={`rounded-full px-2.5 py-1 text-xs font-bold transition-all duration-200 ${language === 'en' ? 'bg-amber-300 text-slate-950 shadow-lg shadow-amber-900/20' : 'text-slate-400 hover:text-white'}`}
         title="English"
       >
-        <img src="https://flagcdn.com/w40/gb.png" alt="EN" className="w-6 h-4 object-cover" />
+        EN
       </button>
     </div>
   );
@@ -58,11 +58,7 @@ const LandingHeader = () => {
   }, []);
 
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'unset';
     return () => {
       document.body.style.overflow = 'unset';
     };
@@ -89,49 +85,44 @@ const LandingHeader = () => {
   return (
     <>
       <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out 
-                    ${isScrolled ? 'bg-slate-900/80 backdrop-blur-lg shadow-lg' : 'bg-transparent'}`}
+        className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ease-in-out ${isScrolled ? 'border-b border-white/10 bg-[#070812]/82 shadow-2xl shadow-black/30 backdrop-blur-2xl' : 'bg-transparent'}`}
       >
-        <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
-          <div className="flex justify-between items-center">
+        <div className="container mx-auto px-4 py-4 sm:px-6">
+          <div className="flex items-center justify-between rounded-full border border-white/10 bg-white/[0.035] px-3 py-2 shadow-2xl shadow-black/20 backdrop-blur-2xl sm:px-5">
             <motion.a 
               href="#" 
-              className="flex items-center space-x-2 sm:space-x-3"
-              whileHover={{ scale: 1.05 }}
+              className="flex items-center gap-3"
+              whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <img
                 src={dailyQuestionLogo}
                 alt="Logo Daily Question"
-                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-purple-500"
+                className="h-10 w-10 rounded-full border border-amber-200/40 bg-slate-950 object-cover shadow-lg shadow-amber-950/20"
               />
-              <span className="font-bold text-lg sm:text-xl bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
+              <span className="font-display text-xl font-bold tracking-wide text-amber-100">
                 {t.hero.title}
               </span>
             </motion.a>
 
-            <div className="flex items-center">
-              <nav className="hidden sm:flex items-center space-x-4 md:space-x-6">
+            <div className="hidden items-center sm:flex">
+              <nav className="flex items-center gap-1 md:gap-2">
                 {navLinks.map(link => (
                   <NavLink key={link.href} href={link.href}>{link.text}</NavLink>
                 ))}
               </nav>
-              <div className="hidden sm:block">
-                <LanguageSelector />
-              </div>
+              <LanguageSelector />
             </div>
 
-            <div className="sm:hidden flex items-center space-x-4">
-              <div className="flex items-center space-x-2">
-                <button onClick={() => toggleLanguage('fr')} className={`w-6 h-4 ${language === 'fr' ? 'ring-1 ring-purple-500' : 'opacity-50'}`}>
-                  <img src="https://flagcdn.com/w40/fr.png" alt="FR" />
-                </button>
-                <button onClick={() => toggleLanguage('en')} className={`w-6 h-4 ${language === 'en' ? 'ring-1 ring-purple-500' : 'opacity-50'}`}>
-                  <img src="https://flagcdn.com/w40/gb.png" alt="EN" />
-                </button>
-              </div>
-              <Button variant="ghost" size="icon" onClick={toggleMobileMenu} className="text-purple-300 hover:text-pink-400">
-                {isMobileMenuOpen ? <X className="h-7 w-7" /> : <MenuIcon className="h-7 w-7" />}
+            <div className="flex items-center gap-2 sm:hidden">
+              <button onClick={() => toggleLanguage('fr')} className={`rounded-full px-2 py-1 text-xs font-bold ${language === 'fr' ? 'bg-amber-300 text-slate-950' : 'text-slate-400'}`}>
+                FR
+              </button>
+              <button onClick={() => toggleLanguage('en')} className={`rounded-full px-2 py-1 text-xs font-bold ${language === 'en' ? 'bg-amber-300 text-slate-950' : 'text-slate-400'}`}>
+                EN
+              </button>
+              <Button variant="ghost" size="icon" onClick={toggleMobileMenu} className="rounded-full text-amber-100 hover:bg-white/10 hover:text-white">
+                {isMobileMenuOpen ? <X className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
               </Button>
             </div>
           </div>
@@ -146,7 +137,7 @@ const LandingHeader = () => {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[55] sm:hidden"
+              className="fixed inset-0 z-[55] bg-black/70 backdrop-blur-md sm:hidden"
               onClick={toggleMobileMenu}
             />
             <motion.div 
@@ -154,21 +145,21 @@ const LandingHeader = () => {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-slate-900 shadow-2xl z-[60] flex flex-col p-6 sm:hidden"
+              className="fixed bottom-0 right-0 top-0 z-[60] flex w-4/5 max-w-sm flex-col border-l border-white/10 bg-[#080914]/95 p-6 shadow-2xl shadow-black sm:hidden"
             >
-              <div className="flex justify-between items-center mb-8">
-                 <span className="font-bold text-xl text-purple-300">{t.nav.menu}</span>
-                <Button variant="ghost" size="icon" onClick={toggleMobileMenu} className="text-purple-300 hover:text-pink-400">
+              <div className="mb-8 flex items-center justify-between">
+                <span className="font-display text-2xl font-bold text-amber-100">{t.nav.menu}</span>
+                <Button variant="ghost" size="icon" onClick={toggleMobileMenu} className="rounded-full text-amber-100 hover:bg-white/10">
                   <X className="h-7 w-7" />
                 </Button>
               </div>
-              <nav className="flex flex-col space-y-4">
+              <nav className="flex flex-col gap-3">
                 {navLinks.map(link => (
                   <a
                     key={link.href}
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex items-center text-lg text-purple-200 hover:text-pink-300 transition-colors duration-300 py-3 px-3 rounded-lg hover:bg-slate-800"
+                    className="flex items-center rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 text-lg font-semibold text-slate-200 transition-colors duration-300 hover:border-amber-200/30 hover:text-amber-100"
                   >
                     {link.icon} {link.text}
                   </a>
@@ -179,31 +170,36 @@ const LandingHeader = () => {
         )}
       </AnimatePresence>
 
-      <div className="relative text-center pt-28 sm:pt-32 pb-16 sm:pb-24">
-        <div className="container mx-auto px-6">
+      <section className="relative overflow-hidden px-4 pb-20 pt-32 text-center sm:pb-28 sm:pt-40">
+        <div className="absolute left-1/2 top-20 h-80 w-80 -translate-x-1/2 rounded-full bg-amber-300/10 blur-3xl" aria-hidden="true" />
+        <div className="container relative mx-auto px-2 sm:px-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+            className="mx-auto max-w-5xl"
           >
+            <div className="mb-8 inline-flex items-center rounded-full border border-amber-200/20 bg-amber-200/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-amber-100 shadow-xl shadow-black/20 backdrop-blur-xl">
+              <Sparkles className="mr-2 h-4 w-4" /> Premium Discord Experience
+            </div>
             <motion.img
               src={dailyQuestionLogo}
               alt="Logo Daily Question"
-              className="w-28 h-28 sm:w-36 sm:h-36 mx-auto mb-6 rounded-full shadow-xl border-4 border-purple-600"
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              transition={{ type: "spring", stiffness: 300, damping: 10 }}
+              className="mx-auto mb-8 h-28 w-28 rounded-full border border-amber-200/40 bg-slate-950 object-cover p-1 shadow-2xl shadow-amber-950/30 sm:h-36 sm:w-36"
+              whileHover={{ scale: 1.06, rotate: 3 }}
+              transition={{ type: "spring", stiffness: 300, damping: 12 }}
             />
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-5 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
+            <h1 className="font-display mx-auto mb-6 max-w-4xl text-5xl font-extrabold leading-[0.95] tracking-tight text-transparent bg-clip-text sm:text-6xl md:text-7xl lg:text-8xl" style={{ backgroundImage: 'linear-gradient(135deg, #fff8df 0%, #f4c974 42%, #a78bfa 78%, #ffffff 100%)' }}>
               {t.hero.title}
             </h1>
-            <p className="text-xl sm:text-2xl md:text-3xl font-light mb-6 text-purple-300">{t.hero.subtitle}</p>
-            <p className="text-md sm:text-lg md:text-xl max-w-3xl mx-auto mb-10 text-gray-300">
+            <p className="mx-auto mb-5 max-w-3xl text-xl font-semibold text-amber-100/90 sm:text-2xl md:text-3xl">{t.hero.subtitle}</p>
+            <p className="mx-auto mb-11 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg md:text-xl">
               {t.hero.description}
             </p>
-            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-5">
+            <div className="flex flex-col flex-wrap justify-center gap-4 sm:flex-row sm:gap-5">
               <Button 
                 size="lg" 
-                className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 sm:px-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 text-md sm:text-lg w-full sm:w-auto"
+                className="premium-button w-full sm:w-auto"
                 onClick={() => window.open('https://discord.com/oauth2/authorize?client_id=1181626669795119105', '_blank')}
               >
                 <MessageSquare className="mr-2 h-5 w-5" /> {t.nav.invite}
@@ -211,7 +207,7 @@ const LandingHeader = () => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white font-semibold py-3 px-6 sm:px-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 text-md sm:text-lg w-full sm:w-auto"
+                className="premium-button-secondary w-full sm:w-auto"
                 onClick={() => window.open('https://discord.gg/wE6vjjCXW3', '_blank')}
               >
                 <Users className="mr-2 h-5 w-5" /> {t.nav.support}
@@ -219,7 +215,7 @@ const LandingHeader = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-yellow-500 text-yellow-400 hover:bg-yellow-500 hover:text-white font-semibold py-3 px-6 sm:px-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 text-md sm:text-lg w-full sm:w-auto"
+                className="premium-button-secondary w-full border-amber-200/25 text-amber-100 sm:w-auto"
                 onClick={() => window.open('https://top.gg/bot/1181626669795119105', '_blank')}
               >
                 <Star className="mr-2 h-5 w-5" /> {t.nav.vote}
@@ -227,7 +223,7 @@ const LandingHeader = () => {
             </div>
           </motion.div>
         </div>
-      </div>
+      </section>
     </>
   );
 };
