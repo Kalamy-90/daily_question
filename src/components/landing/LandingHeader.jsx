@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { MessageSquare, Users, Star, Menu as MenuIcon, X, ListChecks, HelpCircle, Zap, Sparkles } from 'lucide-react';
+import { MessageSquare, Users, Star, Menu as MenuIcon, X, ListChecks, HelpCircle, Zap, Sparkles, Server, Gamepad2 } from 'lucide-react';
 import dailyQuestionLogo from '@/assets/daily-question-logo.png';
 import { useLanguage } from '@/lib/LanguageContext';
 import { translations } from '@/lib/translations';
@@ -15,6 +15,42 @@ const NavLink = ({ href, children, onClick, className = "" }) => (
     {children}
   </a>
 );
+
+const SocialProofBanner = ({ stats }) => {
+  const items = [
+    { value: stats.serversValue, label: stats.serversLabel, icon: Server },
+    { value: stats.playersValue, label: stats.playersLabel, icon: Gamepad2 },
+    { value: stats.ratingValue, label: stats.ratingLabel, icon: Star },
+  ];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, delay: 0.35, ease: "easeOut" }}
+      className="mx-auto mb-10 grid w-full max-w-4xl grid-cols-1 gap-3 rounded-[2rem] border border-amber-200/20 bg-white/[0.055] p-3 shadow-2xl shadow-black/25 backdrop-blur-2xl sm:grid-cols-3"
+      aria-label={stats.ariaLabel}
+    >
+      {items.map(({ value, label, icon: Icon }) => (
+        <div
+          key={label}
+          className="group relative overflow-hidden rounded-3xl border border-white/10 bg-black/20 px-5 py-5 text-left transition-all duration-300 hover:-translate-y-1 hover:border-amber-200/35 hover:bg-white/[0.08] sm:text-center"
+        >
+          <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-amber-200/50 to-transparent opacity-70" aria-hidden="true" />
+          <div className="flex items-center gap-4 sm:flex-col sm:gap-3">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-amber-200/20 bg-amber-300/10 text-amber-200 shadow-lg shadow-amber-950/20">
+              <Icon className="h-5 w-5" aria-hidden="true" />
+            </span>
+            <span>
+              <span className="block font-display text-3xl font-extrabold tracking-tight text-amber-100 sm:text-4xl">{value}</span>
+              <span className="mt-1 block text-xs font-bold uppercase tracking-[0.18em] text-slate-300">{label}</span>
+            </span>
+          </div>
+        </div>
+      ))}
+    </motion.div>
+  );
+};
 
 const LanguageSelector = () => {
   const { language, toggleLanguage } = useLanguage();
@@ -192,9 +228,11 @@ const LandingHeader = () => {
               {t.hero.title}
             </h1>
             <p className="mx-auto mb-5 max-w-3xl text-xl font-semibold text-amber-100/90 sm:text-2xl md:text-3xl">{t.hero.subtitle}</p>
-            <p className="mx-auto mb-10 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg md:text-xl">
+            <p className="mx-auto mb-8 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg md:text-xl">
               {t.hero.description}
             </p>
+
+            <SocialProofBanner stats={t.stats} />
 
             <div className="flex flex-col items-center gap-4">
               <Button 

@@ -18,6 +18,15 @@ export const translations = {
       subtitle: "Votre Bot de Questions Quotidiennes pour Discord !",
       description: "Engagez votre communauté avec Daily Question ! Chaque jour, une nouvelle question de culture générale, un classement pour stimuler la compétition, et une personnalisation complète pour votre serveur."
     },
+    stats: {
+      ariaLabel: "Statistiques de popularité de Daily Question",
+      serversValue: "+600",
+      serversLabel: "serveurs Discord",
+      playersValue: "+3000",
+      playersLabel: "joueurs actifs",
+      ratingValue: "5/5",
+      ratingLabel: "étoiles sur Top.gg"
+    },
     sections: {
       newFeatures: "Nouvelles Fonctionnalités",
       newFeaturesSub: "Découvrez les dernières améliorations qui rendent Daily Question encore plus puissant et facile à utiliser !",
@@ -55,6 +64,15 @@ export const translations = {
       title: "Daily Question",
       subtitle: "Your Daily Question Bot for Discord!",
       description: "Engage your community with Daily Question! Every day, a new general knowledge question, a leaderboard to stimulate competition, and full customization for your server."
+    },
+    stats: {
+      ariaLabel: "Daily Question popularity statistics",
+      serversValue: "600+",
+      serversLabel: "Discord servers",
+      playersValue: "3000+",
+      playersLabel: "active players",
+      ratingValue: "5/5",
+      ratingLabel: "stars on Top.gg"
     },
     sections: {
       newFeatures: "New Features",
