@@ -60,15 +60,24 @@ const SocialProofBanner = ({ stats }) => {
   );
 };
 
-const SupportDialog = ({ support }) => (
+const SupportDialog = ({ support, variant = "hero" }) => {
+  const isNav = variant === "nav";
+  const isMobileNav = variant === "mobile";
+  const triggerClassName = isNav
+    ? "rounded-full border border-pink-300/30 bg-pink-400/10 px-4 py-2 text-sm font-extrabold text-pink-100 shadow-lg shadow-pink-950/15 transition-all duration-300 hover:border-pink-200/55 hover:bg-pink-400/18 hover:text-white"
+    : isMobileNav
+      ? "flex w-full items-center rounded-2xl border border-pink-300/25 bg-pink-400/10 px-4 py-4 text-lg font-semibold text-pink-100 transition-colors duration-300 hover:border-pink-200/45 hover:bg-pink-400/15 hover:text-white"
+      : "w-full rounded-full border border-pink-300/30 bg-gradient-to-r from-pink-500/18 via-fuchsia-500/16 to-purple-500/18 px-7 py-6 text-sm font-extrabold uppercase tracking-[0.16em] text-pink-100 shadow-xl shadow-pink-950/25 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-pink-200/55 hover:bg-pink-400/15 hover:text-white hover:shadow-pink-500/20 sm:w-auto";
+
+  return (
   <Dialog>
     <DialogTrigger asChild>
       <Button
         variant="outline"
-        size="lg"
-        className="w-full rounded-full border border-pink-300/30 bg-gradient-to-r from-pink-500/18 via-fuchsia-500/16 to-purple-500/18 px-7 py-6 text-sm font-extrabold uppercase tracking-[0.16em] text-pink-100 shadow-xl shadow-pink-950/25 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-pink-200/55 hover:bg-pink-400/15 hover:text-white hover:shadow-pink-500/20 sm:w-auto"
+        size={isNav ? "sm" : "lg"}
+        className={triggerClassName}
       >
-        <Heart className="mr-2 h-5 w-5 fill-pink-300/30 text-pink-200" /> {support.button}
+        <Heart className={`${isMobileNav ? "mr-3" : "mr-2"} h-5 w-5 fill-pink-300/30 text-pink-200`} /> {support.button}
       </Button>
     </DialogTrigger>
     <DialogContent className="max-w-2xl overflow-hidden rounded-[2rem] border border-pink-200/20 bg-[#080914]/95 p-0 text-slate-100 shadow-2xl shadow-black/60 backdrop-blur-2xl">
@@ -111,7 +120,8 @@ const SupportDialog = ({ support }) => (
       </div>
     </DialogContent>
   </Dialog>
-);
+  );
+};
 
 const LanguageSelector = () => {
   const { language, toggleLanguage } = useLanguage();
@@ -210,6 +220,7 @@ const LandingHeader = () => {
                 {navLinks.map(link => (
                   <NavLink key={link.href} href={link.href}>{link.text}</NavLink>
                 ))}
+                <SupportDialog support={t.support} variant="nav" />
               </nav>
               <LanguageSelector />
             </div>
@@ -264,6 +275,7 @@ const LandingHeader = () => {
                     {link.icon} {link.text}
                   </a>
                 ))}
+                <SupportDialog support={t.support} variant="mobile" />
               </nav>
             </motion.div>
           </>
@@ -309,7 +321,7 @@ const LandingHeader = () => {
                 <Button 
                   variant="outline" 
                   size="lg" 
-                  className="premium-button-secondary w-full sm:w-auto"
+                  className="premium-button-secondary w-full rounded-full sm:w-auto"
                   onClick={() => window.open('https://discord.gg/wE6vjjCXW3', '_blank')}
                 >
                   <Users className="mr-2 h-5 w-5" /> {t.nav.support}
@@ -317,7 +329,7 @@ const LandingHeader = () => {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="premium-button-secondary w-full border-amber-200/25 text-amber-100 sm:w-auto"
+                  className="premium-button-secondary w-full rounded-full border-amber-200/25 text-amber-100 sm:w-auto"
                   onClick={() => window.open('https://top.gg/bot/1181626669795119105', '_blank')}
                 >
                   <Star className="mr-2 h-5 w-5" /> {t.nav.vote}
