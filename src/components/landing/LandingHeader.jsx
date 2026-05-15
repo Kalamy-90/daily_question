@@ -18,8 +18,8 @@ const NavLink = ({ href, children, onClick, className = "" }) => (
 
 const SocialProofBanner = ({ stats }) => {
   const items = [
-    { value: stats.serversValue, label: stats.serversLabel, icon: Server },
-    { value: stats.playersValue, label: stats.playersLabel, icon: Gamepad2 },
+    { prefix: "+", value: stats.serversValue, label: stats.serversLabel, icon: Server },
+    { prefix: "+", value: stats.playersValue, label: stats.playersLabel, icon: Gamepad2 },
     { value: stats.ratingValue, label: stats.ratingLabel, icon: Star },
   ];
 
@@ -31,7 +31,7 @@ const SocialProofBanner = ({ stats }) => {
       className="mx-auto mb-10 grid w-full max-w-4xl grid-cols-1 gap-3 rounded-[2rem] border border-amber-200/20 bg-white/[0.055] p-3 shadow-2xl shadow-black/25 backdrop-blur-2xl sm:grid-cols-3"
       aria-label={stats.ariaLabel}
     >
-      {items.map(({ value, label, icon: Icon }) => (
+      {items.map(({ prefix, value, label, icon: Icon }) => (
         <div
           key={label}
           className="group relative overflow-hidden rounded-3xl border border-white/10 bg-black/20 px-5 py-5 text-left transition-all duration-300 hover:-translate-y-1 hover:border-amber-200/35 hover:bg-white/[0.08] sm:text-center"
@@ -42,7 +42,14 @@ const SocialProofBanner = ({ stats }) => {
               <Icon className="h-5 w-5" aria-hidden="true" />
             </span>
             <span>
-              <span className="block font-display text-3xl font-extrabold tracking-tight text-amber-100 sm:text-4xl">{value}</span>
+              <span className="flex items-center gap-2 font-display text-3xl font-extrabold tracking-tight text-amber-100 sm:justify-center sm:text-4xl">
+                {prefix && (
+                  <span className="inline-flex translate-y-[0.03em] items-center text-2xl leading-none sm:text-3xl" aria-hidden="true">
+                    {prefix}
+                  </span>
+                )}
+                <span className="leading-none">{value}</span>
+              </span>
               <span className="mt-1 block text-xs font-bold uppercase tracking-[0.18em] text-slate-300">{label}</span>
             </span>
           </div>

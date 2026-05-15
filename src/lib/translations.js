@@ -20,9 +20,9 @@ export const translations = {
     },
     stats: {
       ariaLabel: "Statistiques de popularité de Daily Question",
-      serversValue: "+600",
+      serversValue: "600",
       serversLabel: "serveurs Discord",
-      playersValue: "+3000",
+      playersValue: "3000",
       playersLabel: "joueurs actifs",
       ratingValue: "5/5",
       ratingLabel: "étoiles sur Top.gg"
@@ -67,9 +67,9 @@ export const translations = {
     },
     stats: {
       ariaLabel: "Daily Question popularity statistics",
-      serversValue: "600+",
+      serversValue: "600",
       serversLabel: "Discord servers",
-      playersValue: "3000+",
+      playersValue: "3000",
       playersLabel: "active players",
       ratingValue: "5/5",
       ratingLabel: "stars on Top.gg"
