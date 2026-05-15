@@ -63,6 +63,7 @@ const SocialProofBanner = ({ stats }) => {
 const SupportDialog = ({ support, variant = "hero" }) => {
   const isNav = variant === "nav";
   const isMobileNav = variant === "mobile";
+  const [showCrypto, setShowCrypto] = useState(false);
   const cryptoOptions = [
     {
       name: 'Bitcoin',
@@ -136,6 +137,13 @@ const SupportDialog = ({ support, variant = "hero" }) => {
           </Button>
           <Button
             variant="outline"
+            className="justify-start rounded-2xl border border-cyan-200/25 bg-cyan-300/10 px-5 py-7 text-left text-sm font-extrabold uppercase tracking-[0.14em] text-cyan-100 shadow-xl shadow-cyan-950/20 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-200/45 hover:bg-cyan-300/15 hover:text-white"
+            onClick={() => setShowCrypto((current) => !current)}
+          >
+            <Coins className="mr-3 h-5 w-5" /> {support.crypto}
+          </Button>
+          <Button
+            variant="outline"
             className="justify-start rounded-2xl border border-amber-200/25 bg-amber-300/10 px-5 py-7 text-left text-sm font-extrabold uppercase tracking-[0.14em] text-amber-100 shadow-xl shadow-amber-950/20 transition-all duration-300 hover:-translate-y-0.5 hover:border-amber-200/45 hover:bg-amber-300/15 hover:text-white"
             onClick={() => window.open('https://top.gg/bot/1181626669795119105', '_blank')}
           >
@@ -143,6 +151,7 @@ const SupportDialog = ({ support, variant = "hero" }) => {
           </Button>
         </div>
 
+        {showCrypto && (
         <div className="mt-9 rounded-[1.5rem] border border-white/10 bg-white/[0.035] p-4 sm:p-5">
           <div className="mb-5 flex items-center gap-3 text-left">
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-pink-200/25 bg-pink-300/10 text-pink-200">
@@ -175,6 +184,7 @@ const SupportDialog = ({ support, variant = "hero" }) => {
             ))}
           </div>
         </div>
+        )}
       </div>
     </DialogContent>
   </Dialog>
