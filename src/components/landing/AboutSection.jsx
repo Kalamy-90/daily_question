@@ -75,7 +75,7 @@ const AboutSection = () => {
                 ))}
               </div>
 
-              <div className="grid gap-3 py-8 sm:grid-cols-3 sm:py-9">
+              <div className="mt-4 grid gap-3 py-8 sm:mt-5 sm:grid-cols-3 sm:py-9">
                 {highlights.map(({ icon: Icon, text }) => (
                   <div key={text} className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm font-semibold leading-6 text-slate-200">
                     <Icon className="mb-3 h-6 w-6 text-amber-200" aria-hidden="true" />
