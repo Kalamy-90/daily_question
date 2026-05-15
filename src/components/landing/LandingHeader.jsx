@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { MessageSquare, Users, Star, Menu as MenuIcon, X, ListChecks, HelpCircle, Zap, Sparkles, Server, Gamepad2, Info } from 'lucide-react';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { MessageSquare, Users, Star, Menu as MenuIcon, X, ListChecks, HelpCircle, Zap, Sparkles, Server, Gamepad2, Info, Heart, CreditCard, Coins, Gift } from 'lucide-react';
 import dailyQuestionLogo from '@/assets/daily-question-logo.png';
 import { useLanguage } from '@/lib/LanguageContext';
 import { translations } from '@/lib/translations';
@@ -58,6 +59,59 @@ const SocialProofBanner = ({ stats }) => {
     </motion.div>
   );
 };
+
+const SupportDialog = ({ support }) => (
+  <Dialog>
+    <DialogTrigger asChild>
+      <Button
+        variant="outline"
+        size="lg"
+        className="w-full rounded-full border border-pink-300/30 bg-gradient-to-r from-pink-500/18 via-fuchsia-500/16 to-purple-500/18 px-7 py-6 text-sm font-extrabold uppercase tracking-[0.16em] text-pink-100 shadow-xl shadow-pink-950/25 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-pink-200/55 hover:bg-pink-400/15 hover:text-white hover:shadow-pink-500/20 sm:w-auto"
+      >
+        <Heart className="mr-2 h-5 w-5 fill-pink-300/30 text-pink-200" /> {support.button}
+      </Button>
+    </DialogTrigger>
+    <DialogContent className="max-w-2xl overflow-hidden rounded-[2rem] border border-pink-200/20 bg-[#080914]/95 p-0 text-slate-100 shadow-2xl shadow-black/60 backdrop-blur-2xl">
+      <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-pink-200/60 to-transparent" aria-hidden="true" />
+      <div className="relative p-7 sm:p-9">
+        <DialogHeader className="text-center">
+          <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-pink-200/30 bg-pink-300/10 text-pink-200 shadow-xl shadow-pink-950/25">
+            <Heart className="h-7 w-7 fill-pink-300/25" aria-hidden="true" />
+          </div>
+          <DialogTitle className="font-display text-3xl font-bold text-pink-100 sm:text-4xl">
+            {support.title}
+          </DialogTitle>
+          <DialogDescription className="mx-auto max-w-xl pt-3 text-base leading-8 text-slate-300">
+            {support.description}
+          </DialogDescription>
+        </DialogHeader>
+
+        <div className="mt-8 grid gap-3">
+          <Button
+            className="justify-start rounded-2xl border border-pink-200/25 bg-gradient-to-r from-pink-300 via-fuchsia-300 to-purple-300 px-5 py-7 text-left text-sm font-extrabold uppercase tracking-[0.14em] text-slate-950 shadow-xl shadow-pink-950/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-pink-500/20"
+            onClick={() => window.open('https://ko-fi.com/dailyquestion', '_blank')}
+          >
+            <CreditCard className="mr-3 h-5 w-5" /> {support.cardPaypal}
+          </Button>
+          <Button
+            variant="outline"
+            className="justify-start rounded-2xl border border-white/10 bg-white/[0.045] px-5 py-7 text-left text-sm font-bold uppercase tracking-[0.14em] text-slate-400 opacity-75"
+            disabled
+          >
+            <Coins className="mr-3 h-5 w-5" /> {support.crypto}
+          </Button>
+          <Button
+            variant="outline"
+            className="justify-start rounded-2xl border border-amber-200/25 bg-amber-300/10 px-5 py-7 text-left text-sm font-extrabold uppercase tracking-[0.14em] text-amber-100 shadow-xl shadow-amber-950/20 transition-all duration-300 hover:-translate-y-0.5 hover:border-amber-200/45 hover:bg-amber-300/15 hover:text-white"
+            onClick={() => window.open('https://top.gg/bot/1181626669795119105', '_blank')}
+          >
+            <Gift className="mr-3 h-5 w-5" /> {support.free}
+          </Button>
+        </div>
+      </div>
+    </DialogContent>
+  </Dialog>
+);
 
 const LanguageSelector = () => {
   const { language, toggleLanguage } = useLanguage();
@@ -268,6 +322,7 @@ const LandingHeader = () => {
                 >
                   <Star className="mr-2 h-5 w-5" /> {t.nav.vote}
                 </Button>
+                <SupportDialog support={t.support} />
               </div>
             </div>
           </motion.div>

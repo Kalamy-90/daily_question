@@ -53,6 +53,14 @@ export const translations = {
       ratingValue: "5/5",
       ratingLabel: "étoiles sur Top.gg"
     },
+    support: {
+      button: "Nous soutenir",
+      title: "Soutenir Daily Question",
+      description: "Vous aimez Daily Question ? Vous pouvez nous aider à continuer le développement avec un don, ou gratuitement en votant pour le bot sur Top.gg. Chaque soutien aide le projet à grandir.",
+      cardPaypal: "Faire un don par carte ou PayPal",
+      crypto: "Faire un don via crypto — bientôt disponible",
+      free: "Soutenir gratuitement sur Top.gg"
+    },
     sections: {
       newFeatures: "Nouvelles Fonctionnalités",
       newFeaturesSub: "Découvrez les dernières améliorations qui rendent Daily Question encore plus puissant et facile à utiliser !",
@@ -125,6 +133,14 @@ export const translations = {
       playersLabel: "active players",
       ratingValue: "5/5",
       ratingLabel: "stars on Top.gg"
+    },
+    support: {
+      button: "Support us",
+      title: "Support Daily Question",
+      description: "Do you enjoy Daily Question? You can help us keep developing it with a donation, or for free by voting for the bot on Top.gg. Every kind of support helps the project grow.",
+      cardPaypal: "Donate by card or PayPal",
+      crypto: "Donate with crypto — coming soon",
+      free: "Support for free on Top.gg"
     },
     sections: {
       newFeatures: "New Features",
