@@ -21,6 +21,7 @@ const PageFooter = () => {
           <a href="https://discord.com/oauth2/authorize?client_id=1181626669795119105" target="_blank" rel="noopener noreferrer" className="text-slate-300 transition-colors hover:text-amber-100">{t.nav.invite}</a>
           <a href="https://discord.gg/wE6vjjCXW3" target="_blank" rel="noopener noreferrer" className="text-slate-300 transition-colors hover:text-amber-100">{t.nav.support}</a>
           <a href="https://top.gg/bot/1181626669795119105" target="_blank" rel="noopener noreferrer" className="text-slate-300 transition-colors hover:text-amber-100">{t.nav.vote}</a>
+          <a href="/#about" className="text-slate-300 transition-colors hover:text-amber-100">{t.nav.about}</a>
           <a href="/conditions-utilisation" className="text-slate-300 transition-colors hover:text-amber-100">{t.nav.terms}</a>
           <a href="/politique-confidentialite" className="text-slate-300 transition-colors hover:text-amber-100">{t.nav.privacy}</a>
         </nav>

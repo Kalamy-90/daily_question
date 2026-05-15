@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { MessageSquare, Users, Star, Menu as MenuIcon, X, ListChecks, HelpCircle, Zap, Sparkles, Server, Gamepad2 } from 'lucide-react';
+import { MessageSquare, Users, Star, Menu as MenuIcon, X, ListChecks, HelpCircle, Zap, Sparkles, Server, Gamepad2, Info } from 'lucide-react';
 import dailyQuestionLogo from '@/assets/daily-question-logo.png';
 import { useLanguage } from '@/lib/LanguageContext';
 import { translations } from '@/lib/translations';
@@ -111,6 +111,7 @@ const LandingHeader = () => {
     { href: "#new-features", text: t.nav.new, icon: <Sparkles className="mr-3 h-5 w-5" /> },
     { href: "#features", text: t.nav.features, icon: <ListChecks className="mr-3 h-5 w-5" /> },
     { href: "#commands", text: t.nav.commands, icon: <Zap className="mr-3 h-5 w-5" /> },
+    { href: "#about", text: t.nav.about, icon: <Info className="mr-3 h-5 w-5" /> },
     { href: "#faq", text: t.nav.faq, icon: <HelpCircle className="mr-3 h-5 w-5" /> },
   ];
 

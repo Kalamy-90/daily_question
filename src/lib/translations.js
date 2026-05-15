@@ -5,6 +5,7 @@ export const translations = {
       features: "Fonctionnalités",
       commands: "Commandes",
       faq: "FAQ",
+      about: "À propos",
       menu: "Menu",
       invite: "Invitez Daily Question !",
       support: "Serveur Support",
@@ -12,6 +13,31 @@ export const translations = {
       backToHome: "Retour à l'accueil",
       terms: "Conditions d'utilisation",
       privacy: "Politique de confidentialité"
+    },
+    about: {
+      eyebrow: "Kalamy's Team",
+      title: "Qui sommes-nous ?",
+      subtitle: "Une équipe spécialisée dans le développement de bots Discord personnalisés, portée par Kalamy et construite autour de Daily Question.",
+      teamTitle: "La Kalamy's Team",
+      teamParagraphs: [
+        "La Kalamy's Team est une équipe de développement spécialisée dans les bots Discord, créée par Kalamy (kalamy_yt sur Discord). Actuellement composée d'un seul membre, la team travaille sur différents projets autour du développement de bots personnalisés.",
+        "Parmi les créations de la team, le projet principal est Daily Question, un bot Discord conçu pour automatiser des questions sur plusieurs serveurs avec de nombreuses fonctionnalités avancées.",
+        "La Kalamy's Team peut également réaliser des bots Discord sur commande, adaptés aux besoins de chaque serveur : automatisation, modération, IA, systèmes personnalisés, jeux, tickets, économie, et bien plus.",
+        "La team accueille également les nouveaux membres souhaitant rejoindre l'aventure et participer aux futurs projets."
+      ],
+      highlights: {
+        customBots: "Bots Discord sur mesure pour chaque serveur",
+        dailyQuestion: "Daily Question comme projet principal",
+        joinTeam: "Ouverte aux nouveaux membres motivés"
+      },
+      contactTitle: "Nous contacter",
+      contactIntro: "Vous souhaitez commander un bot, poser une question ou rejoindre la communauté ? Vous pouvez contacter la Kalamy's Team via :",
+      discordLabel: "Discord Daily Question",
+      kalamyTitle: "À propos de Kalamy",
+      kalamyDescription: "Je suis Kalamy (kalamy_yt sur Discord), développeur Discord et créateur de la Kalamy's Team. Je développe principalement des bots Discord personnalisés, et c'est moi qui ai créé Daily Question, les autres bots et ce site.",
+      discordContactLabel: "Serveur Discord ou message privé",
+      fiverrLabel: "Fiverr de Kalamy",
+      closing: "Que ce soit pour un simple renseignement ou pour créer un bot complet, n'hésitez pas à me contacter."
     },
     hero: {
       title: "Daily Question",
@@ -52,6 +78,7 @@ export const translations = {
       features: "Features",
       commands: "Commands",
       faq: "FAQ",
+      about: "About",
       menu: "Menu",
       invite: "Invite Daily Question!",
       support: "Support Server",
@@ -59,6 +86,31 @@ export const translations = {
       backToHome: "Back to Home",
       terms: "Terms of Service",
       privacy: "Privacy Policy"
+    },
+    about: {
+      eyebrow: "Kalamy's Team",
+      title: "Who are we?",
+      subtitle: "A team specialized in custom Discord bot development, led by Kalamy and built around Daily Question.",
+      teamTitle: "Kalamy's Team",
+      teamParagraphs: [
+        "Kalamy's Team is a development team specialized in Discord bots, created by Kalamy (kalamy_yt on Discord). Currently composed of one member, the team works on several projects focused on custom bot development.",
+        "Among the team's creations, the main project is Daily Question, a Discord bot designed to automate questions across multiple servers with many advanced features.",
+        "Kalamy's Team can also create custom Discord bots tailored to each server's needs: automation, moderation, AI, custom systems, games, tickets, economy, and much more.",
+        "The team also welcomes new members who want to join the adventure and contribute to future projects."
+      ],
+      highlights: {
+        customBots: "Custom Discord bots for every server",
+        dailyQuestion: "Daily Question as the main project",
+        joinTeam: "Open to motivated new members"
+      },
+      contactTitle: "Contact us",
+      contactIntro: "Would you like to order a bot, ask a question, or join the community? You can contact Kalamy's Team via:",
+      discordLabel: "Daily Question Discord",
+      kalamyTitle: "About Kalamy",
+      kalamyDescription: "I am Kalamy (kalamy_yt on Discord), Discord developer and creator of Kalamy's Team. I mainly develop custom Discord bots, and I created Daily Question, the other bots, and this website.",
+      discordContactLabel: "Discord server or private message",
+      fiverrLabel: "Kalamy's Fiverr",
+      closing: "Whether you need simple information or a complete bot, feel free to contact me."
     },
     hero: {
       title: "Daily Question",

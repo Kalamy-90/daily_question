@@ -3,6 +3,7 @@ import LandingHeader from '@/components/landing/LandingHeader';
 import FeaturesSection from '@/components/landing/FeaturesSection';
 import CommandsSection from '@/components/landing/CommandsSection';
 import HowToStartSection from '@/components/landing/HowToStartSection';
+import AboutSection from '@/components/landing/AboutSection';
 import FaqSection from '@/components/landing/FaqSection';
 import NewFeaturesSection from '@/components/landing/NewFeaturesSection';
 import PageFooter from '@/components/landing/PageFooter';
@@ -20,6 +21,7 @@ const App = () => {
           <FeaturesSection />
           <CommandsSection />
           <HowToStartSection />
+          <AboutSection />
           <FaqSection />
         </main>
         <PageFooter />
