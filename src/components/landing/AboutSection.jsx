@@ -52,14 +52,14 @@ const AboutSection = () => {
           <p className="section-subtitle">{about.subtitle}</p>
         </div>
 
-        <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1.12fr_0.88fr]">
+        <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1.12fr_0.88fr] lg:items-end">
           <motion.article
             custom={0}
             variants={itemAnimation}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.25 }}
-            className="premium-card"
+            className="premium-card lg:self-end"
           >
             <div className="relative z-10 p-7 sm:p-9">
               <div className="mb-7 flex items-center gap-4">
@@ -86,7 +86,7 @@ const AboutSection = () => {
             </div>
           </motion.article>
 
-          <div className="grid gap-6">
+          <div className="grid gap-6 lg:self-end">
             <motion.aside
               custom={1}
               variants={itemAnimation}

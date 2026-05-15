@@ -111,8 +111,8 @@ const LandingHeader = () => {
     { href: "#new-features", text: t.nav.new, icon: <Sparkles className="mr-3 h-5 w-5" /> },
     { href: "#features", text: t.nav.features, icon: <ListChecks className="mr-3 h-5 w-5" /> },
     { href: "#commands", text: t.nav.commands, icon: <Zap className="mr-3 h-5 w-5" /> },
-    { href: "#about", text: t.nav.about, icon: <Info className="mr-3 h-5 w-5" /> },
     { href: "#faq", text: t.nav.faq, icon: <HelpCircle className="mr-3 h-5 w-5" /> },
+    { href: "#about", text: t.nav.about, icon: <Info className="mr-3 h-5 w-5" /> },
   ];
 
 

@@ -21,8 +21,8 @@ const App = () => {
           <FeaturesSection />
           <CommandsSection />
           <HowToStartSection />
-          <AboutSection />
           <FaqSection />
+          <AboutSection />
         </main>
         <PageFooter />
       </div>
