@@ -19,6 +19,7 @@ export const translations = {
       title: "Qui sommes-nous ?",
       subtitle: "Une équipe spécialisée dans le développement de bots Discord personnalisés, portée par Kalamy et construite autour de Daily Question.",
       teamTitle: "La Kalamy's Team",
+      servicesTitle: "Projets et services",
       teamParagraphs: [
         "La Kalamy's Team est une équipe de développement spécialisée dans les bots Discord, créée par Kalamy (kalamy_yt sur Discord). Actuellement composée d'un seul membre, la team travaille sur différents projets autour du développement de bots personnalisés.",
         "Parmi les créations de la team, le projet principal est Daily Question, un bot Discord conçu pour automatiser des questions sur plusieurs serveurs avec de nombreuses fonctionnalités avancées.",
@@ -92,6 +93,7 @@ export const translations = {
       title: "Who are we?",
       subtitle: "A team specialized in custom Discord bot development, led by Kalamy and built around Daily Question.",
       teamTitle: "Kalamy's Team",
+      servicesTitle: "Projects and services",
       teamParagraphs: [
         "Kalamy's Team is a development team specialized in Discord bots, created by Kalamy (kalamy_yt on Discord). Currently composed of one member, the team works on several projects focused on custom bot development.",
         "Among the team's creations, the main project is Daily Question, a Discord bot designed to automate questions across multiple servers with many advanced features.",

@@ -22,6 +22,27 @@ const ContactLink = ({ href, children, icon: Icon }) => (
   </a>
 );
 
+const AboutCard = ({ custom, icon: Icon, title, children, className = '' }) => (
+  <motion.article
+    custom={custom}
+    variants={itemAnimation}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.25 }}
+    className={`premium-card h-full ${className}`}
+  >
+    <div className="relative z-10 flex h-full flex-col p-7 sm:p-8">
+      <div className="mb-6 flex items-center gap-4">
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-amber-200/25 bg-amber-300/10 p-3 text-amber-200 shadow-xl shadow-amber-950/20">
+          <Icon className="h-6 w-6" aria-hidden="true" />
+        </div>
+        <h3 className="font-display text-2xl font-bold text-amber-100 sm:text-3xl">{title}</h3>
+      </div>
+      {children}
+    </div>
+  </motion.article>
+);
+
 const AboutSection = () => {
   const { language } = useLanguage();
   const t = translations[language];
@@ -32,6 +53,9 @@ const AboutSection = () => {
     { icon: Sparkles, text: about.highlights.dailyQuestion },
     { icon: UserPlus, text: about.highlights.joinTeam },
   ];
+
+  const teamIntro = about.teamParagraphs.slice(0, 2);
+  const servicesIntro = about.teamParagraphs.slice(2);
 
   return (
     <motion.section
@@ -52,81 +76,48 @@ const AboutSection = () => {
           <p className="section-subtitle">{about.subtitle}</p>
         </div>
 
-        <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1.12fr_0.88fr] lg:items-end">
-          <motion.article
-            custom={0}
-            variants={itemAnimation}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.25 }}
-            className="premium-card lg:self-end"
-          >
-            <div className="relative z-10 p-7 sm:p-9">
-              <div className="mb-7 flex items-center gap-4">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-amber-200/25 bg-amber-300/10 text-amber-200 shadow-xl shadow-amber-950/20">
-                  <Users className="h-7 w-7" aria-hidden="true" />
-                </div>
-                <h3 className="font-display text-3xl font-bold text-amber-100">{about.teamTitle}</h3>
-              </div>
-
-              <div className="space-y-5 text-base leading-8 text-slate-300">
-                {about.teamParagraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </div>
-
-              <div className="mt-8 grid gap-3 sm:grid-cols-3">
-                {highlights.map(({ icon: Icon, text }) => (
-                  <div key={text} className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm font-semibold leading-6 text-slate-200">
-                    <Icon className="mb-3 h-6 w-6 text-amber-200" aria-hidden="true" />
-                    {text}
-                  </div>
-                ))}
-              </div>
+        <div className="mx-auto grid max-w-6xl items-stretch gap-6 lg:grid-cols-2">
+          <AboutCard custom={0} icon={Users} title={about.teamTitle}>
+            <div className="space-y-4 text-base leading-8 text-slate-300">
+              {teamIntro.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </div>
-          </motion.article>
+          </AboutCard>
 
-          <div className="grid gap-6 lg:self-end">
-            <motion.aside
-              custom={1}
-              variants={itemAnimation}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.25 }}
-              className="premium-card"
-            >
-              <div className="relative z-10 p-7 sm:p-8">
-                <h3 className="font-display mb-4 text-2xl font-bold text-amber-100">{about.contactTitle}</h3>
-                <p className="mb-6 text-sm leading-7 text-slate-300">{about.contactIntro}</p>
-                <div className="grid gap-3">
-                  <ContactLink href="https://discord.com/invite/wE6vjjCXW3" icon={MessageCircle}>{about.discordLabel}</ContactLink>
-                  <ContactLink href="mailto:kalamys.team@gmail.com" icon={Mail}>kalamys.team@gmail.com</ContactLink>
-                </div>
-              </div>
-            </motion.aside>
+          <AboutCard custom={1} icon={Sparkles} title={about.kalamyTitle}>
+            <p className="text-base leading-8 text-slate-300">{about.kalamyDescription}</p>
+            <p className="mt-5 rounded-2xl border border-amber-200/15 bg-amber-300/10 p-4 text-sm font-semibold leading-7 text-amber-100/90">
+              {about.closing}
+            </p>
+          </AboutCard>
 
-            <motion.aside
-              custom={2}
-              variants={itemAnimation}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.25 }}
-              className="premium-card"
-            >
-              <div className="relative z-10 p-7 sm:p-8">
-                <h3 className="font-display mb-4 text-2xl font-bold text-amber-100">{about.kalamyTitle}</h3>
-                <p className="mb-6 text-sm leading-7 text-slate-300">{about.kalamyDescription}</p>
-                <div className="grid gap-3">
-                  <ContactLink href="https://discord.com/invite/wE6vjjCXW3" icon={MessageCircle}>{about.discordContactLabel}</ContactLink>
-                  <ContactLink href="mailto:kalamy.pro@gmail.com" icon={Mail}>kalamy.pro@gmail.com</ContactLink>
-                  <ContactLink href="https://fr.fiverr.com/s/DBp51wo" icon={ExternalLink}>{about.fiverrLabel}</ContactLink>
+          <AboutCard custom={2} icon={Bot} title={about.servicesTitle}>
+            <div className="space-y-4 text-base leading-8 text-slate-300">
+              {servicesIntro.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+            <div className="mt-6 grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+              {highlights.map(({ icon: Icon, text }) => (
+                <div key={text} className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm font-semibold leading-6 text-slate-200">
+                  <Icon className="mb-3 h-6 w-6 text-amber-200" aria-hidden="true" />
+                  {text}
                 </div>
-                <p className="mt-6 rounded-2xl border border-amber-200/15 bg-amber-300/10 p-4 text-sm font-semibold leading-7 text-amber-100/90">
-                  {about.closing}
-                </p>
-              </div>
-            </motion.aside>
-          </div>
+              ))}
+            </div>
+          </AboutCard>
+
+          <AboutCard custom={3} icon={MessageCircle} title={about.contactTitle}>
+            <p className="mb-6 text-base leading-8 text-slate-300">{about.contactIntro}</p>
+            <div className="grid gap-3">
+              <ContactLink href="https://discord.com/invite/wE6vjjCXW3" icon={MessageCircle}>{about.discordLabel}</ContactLink>
+              <ContactLink href="mailto:kalamys.team@gmail.com" icon={Mail}>kalamys.team@gmail.com</ContactLink>
+              <ContactLink href="https://discord.com/invite/wE6vjjCXW3" icon={MessageCircle}>{about.discordContactLabel}</ContactLink>
+              <ContactLink href="mailto:kalamy.pro@gmail.com" icon={Mail}>kalamy.pro@gmail.com</ContactLink>
+              <ContactLink href="https://fr.fiverr.com/s/DBp51wo" icon={ExternalLink}>{about.fiverrLabel}</ContactLink>
+            </div>
+          </AboutCard>
         </div>
       </div>
     </motion.section>
