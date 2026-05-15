@@ -63,6 +63,7 @@ export const translations = {
       cryptoDescription: "Vous pouvez aussi soutenir le projet avec l'une des cryptomonnaies ci-dessous. Vérifiez toujours le réseau avant l'envoi.",
       addressLabel: "Adresse",
       qrAlt: "QR code de don pour",
+      back: "Retour aux options",
       free: "Soutenir gratuitement sur Top.gg"
     },
     sections: {
@@ -148,6 +149,7 @@ export const translations = {
       cryptoDescription: "You can also support the project with one of the cryptocurrencies below. Always check the network before sending.",
       addressLabel: "Address",
       qrAlt: "Donation QR code for",
+      back: "Back to options",
       free: "Support for free on Top.gg"
     },
     sections: {
