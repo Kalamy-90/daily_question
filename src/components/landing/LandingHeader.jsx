@@ -63,6 +63,38 @@ const SocialProofBanner = ({ stats }) => {
 const SupportDialog = ({ support, variant = "hero" }) => {
   const isNav = variant === "nav";
   const isMobileNav = variant === "mobile";
+  const cryptoOptions = [
+    {
+      name: 'Bitcoin',
+      network: 'BTC',
+      address: '39dmeg5pmHgsKFCEXe6rjr5GHMmUva2V4W',
+      qrCode: '/crypto/bitcoin-qr.png',
+    },
+    {
+      name: 'Ethereum',
+      network: 'ETH',
+      address: '0xac0dfE09C9292a92DB3056a286348887D81282DF',
+      qrCode: '/crypto/ethereum-qr.png',
+    },
+    {
+      name: 'USDC',
+      network: 'Ethereum',
+      address: '0xac0dfE09C9292a92DB3056a286348887D81282DF',
+      qrCode: '/crypto/usdc-qr.png',
+    },
+    {
+      name: 'Solana',
+      network: 'SOL',
+      address: '53RA6mgpcMixBuP9P9gTR9X2m8XtQZZVnw48hYbph2ru',
+      qrCode: '/crypto/solana-qr.png',
+    },
+    {
+      name: 'Tether',
+      network: 'TRON / TRC20',
+      address: 'TPobAx1wJxgP7sh737rPfKc6ToSZvb8Vro',
+      qrCode: '/crypto/tether-tron-qr.png',
+    },
+  ];
   const triggerClassName = isNav
     ? "rounded-full border border-pink-300/30 bg-pink-400/10 px-4 py-2 text-sm font-extrabold text-pink-100 shadow-lg shadow-pink-950/15 transition-all duration-300 hover:border-pink-200/55 hover:bg-pink-400/18 hover:text-white"
     : isMobileNav
@@ -80,7 +112,7 @@ const SupportDialog = ({ support, variant = "hero" }) => {
         <Heart className={`${isMobileNav ? "mr-3" : "mr-2"} h-5 w-5 fill-pink-300/30 text-pink-200`} /> {support.button}
       </Button>
     </DialogTrigger>
-    <DialogContent className="max-w-2xl overflow-hidden rounded-[2rem] border border-pink-200/20 bg-[#080914]/95 p-0 text-slate-100 shadow-2xl shadow-black/60 backdrop-blur-2xl">
+    <DialogContent className="max-h-[92vh] max-w-3xl overflow-y-auto rounded-[2rem] border border-pink-200/20 bg-[#080914]/95 p-0 text-slate-100 shadow-2xl shadow-black/60 backdrop-blur-2xl">
       <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-pink-200/60 to-transparent" aria-hidden="true" />
       <div className="relative p-7 sm:p-9">
         <DialogHeader className="text-center">
@@ -104,18 +136,44 @@ const SupportDialog = ({ support, variant = "hero" }) => {
           </Button>
           <Button
             variant="outline"
-            className="justify-start rounded-2xl border border-white/10 bg-white/[0.045] px-5 py-7 text-left text-sm font-bold uppercase tracking-[0.14em] text-slate-400 opacity-75"
-            disabled
-          >
-            <Coins className="mr-3 h-5 w-5" /> {support.crypto}
-          </Button>
-          <Button
-            variant="outline"
             className="justify-start rounded-2xl border border-amber-200/25 bg-amber-300/10 px-5 py-7 text-left text-sm font-extrabold uppercase tracking-[0.14em] text-amber-100 shadow-xl shadow-amber-950/20 transition-all duration-300 hover:-translate-y-0.5 hover:border-amber-200/45 hover:bg-amber-300/15 hover:text-white"
             onClick={() => window.open('https://top.gg/bot/1181626669795119105', '_blank')}
           >
             <Gift className="mr-3 h-5 w-5" /> {support.free}
           </Button>
+        </div>
+
+        <div className="mt-9 rounded-[1.5rem] border border-white/10 bg-white/[0.035] p-4 sm:p-5">
+          <div className="mb-5 flex items-center gap-3 text-left">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-pink-200/25 bg-pink-300/10 text-pink-200">
+              <Coins className="h-5 w-5" aria-hidden="true" />
+            </span>
+            <div>
+              <h3 className="font-display text-xl font-bold text-pink-100">{support.cryptoTitle}</h3>
+              <p className="mt-1 text-sm leading-6 text-slate-400">{support.cryptoDescription}</p>
+            </div>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {cryptoOptions.map((crypto) => (
+              <div key={crypto.name} className="rounded-2xl border border-white/10 bg-black/20 p-4 text-left">
+                <div className="mb-3 flex items-center justify-between gap-3">
+                  <div>
+                    <p className="font-display text-lg font-bold text-amber-100">{crypto.name}</p>
+                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">{crypto.network}</p>
+                  </div>
+                </div>
+                <img
+                  src={crypto.qrCode}
+                  alt={`${support.qrAlt} ${crypto.name}`}
+                  className="mx-auto mb-4 h-36 w-36 rounded-2xl border border-white/10 bg-white object-contain p-2 shadow-lg shadow-black/25"
+                  loading="lazy"
+                />
+                <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-slate-500">{support.addressLabel}</p>
+                <p className="break-all rounded-xl border border-white/10 bg-black/30 p-3 font-mono text-xs leading-5 text-slate-200">{crypto.address}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </DialogContent>
