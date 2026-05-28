@@ -50,7 +50,7 @@ const FaqSection = () => {
         <p className="mt-12 text-center text-slate-300">
           {t.sections.faqSub}{' '}
           <a href="https://discord.gg/wE6vjjCXW3" target="_blank" rel="noopener noreferrer" className="font-bold text-amber-200 underline-offset-4 hover:text-amber-100 hover:underline">
-            {language === 'fr' ? 'serveur de support' : 'support server'}
+            {language === 'fr' ? 'Rejoignez notre serveur de support !' : 'Join our support server!'}
           </a>
         </p>
       </div>

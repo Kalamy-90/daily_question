@@ -73,7 +73,7 @@ export const translations = {
       commands: "Commandes du Bot",
       howToStart: "Comment Démarrer ?",
       faq: "FAQ",
-      faqSub: "D'autres questions ? Rejoignez notre serveur de support !",
+      faqSub: "D'autres questions ?",
       learnMore: "En savoir plus",
       close: "Fermer",
       newBadge: "Nouveau"
@@ -159,7 +159,7 @@ export const translations = {
       commands: "Bot Commands",
       howToStart: "How to Start?",
       faq: "FAQ",
-      faqSub: "Other questions? Join our support server!",
+      faqSub: "Other questions?",
       learnMore: "Learn more",
       close: "Close",
       newBadge: "New"
