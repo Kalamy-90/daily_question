@@ -39,9 +39,35 @@ const FeaturesSection = () => {
     setSelectedFeature(null);
   };
 
-  const truncateText = (text, maxLength) => {
-    if (text.length <= maxLength) return text;
-    return text.substr(0, text.lastIndexOf(' ', maxLength)) + '...';
+  const renderDescription = (description, isTruncated = false) => {
+    if (typeof description === 'string') {
+      if (isTruncated && description.length > 118) {
+        return description.substr(0, description.lastIndexOf(' ', 118)) + '...';
+      }
+      return description;
+    }
+    
+    // Si c'est un objet React (JSX), on l'affiche tel quel ou on extrait le texte pour la version tronquée
+    if (isTruncated) {
+      // Pour l'aperçu, on prend le texte du premier <li> s'il existe
+      try {
+        if (description.props && description.props.children) {
+          const children = React.Children.toArray(description.props.children);
+          const firstLi = children.find(child => child.type === 'li');
+          if (firstLi && firstLi.props && firstLi.props.children) {
+            const text = Array.isArray(firstLi.props.children) 
+              ? firstLi.props.children.map(c => typeof c === 'string' ? c : (c.props?.children || '')).join('')
+              : firstLi.props.children;
+            return typeof text === 'string' ? (text.length > 100 ? text.substring(0, 100) + '...' : text) : 'Découvrez cette fonctionnalité...';
+          }
+        }
+      } catch (e) {
+        return 'Découvrez cette fonctionnalité...';
+      }
+      return 'Découvrez cette fonctionnalité...';
+    }
+    
+    return description;
   };
 
   return (
@@ -82,9 +108,9 @@ const FeaturesSection = () => {
                       <CardTitle className="text-xl font-bold leading-tight text-slate-50">{feature.title}</CardTitle>
                     </CardHeader>
                     <CardContent className="relative z-10 flex flex-grow flex-col justify-between">
-                      <CardDescription className="mb-6 text-sm leading-7 text-slate-300">
-                        {truncateText(feature.description, 118)}
-                      </CardDescription>
+                      <div className="mb-6 text-sm leading-7 text-slate-300">
+                        {renderDescription(feature.description, true)}
+                      </div>
                       <Button 
                         variant="link" 
                         className="group h-auto self-start p-0 text-sm font-bold uppercase tracking-[0.18em] text-amber-200 hover:text-amber-100"

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
@@ -35,9 +35,9 @@ const FeatureModal = ({ isOpen, onClose, title, description, icon }) => {
               <X className="h-5 w-5" />
             </Button>
             <div className="max-h-[48vh] overflow-y-auto p-7">
-              <DialogDescription className="text-base leading-8 text-slate-300">
+              <div className="text-base leading-8 text-slate-300">
                 {description}
-              </DialogDescription>
+              </div>
             </div>
             <div className="border-t border-white/10 p-6 text-right">
               <Button onClick={onClose} className="premium-button px-6 py-5">
