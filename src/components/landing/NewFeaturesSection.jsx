@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { MessageSquare, RotateCcw, Shield, CheckSquare, Pause, Maximize2, ListChecks, ChevronDown, ChevronUp, Sparkles } from 'lucide-react';
+import { MessageSquare, RotateCcw, Shield, CheckSquare, Pause, Maximize2, ListChecks, ChevronDown, ChevronUp, Sparkles, Eye, UserMinus } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import { translations } from '@/lib/translations';
 
@@ -26,24 +26,28 @@ const NewFeaturesSection = () => {
 
   const newFeatures = {
     fr: [
-      { icon: <CheckSquare className={iconClass} />, title: "Questions à Choix Multiples (QCM)", description: "Le bot supporte désormais les QCM avec jusqu'à 25 options. Les utilisateurs peuvent répondre par lettre (A, B, C...) ou par texte." },
-      { icon: <ListChecks className={iconClass} />, title: "Multiples Réponses Possibles", description: "Les questions texte peuvent accepter plusieurs réponses correctes (synonymes) séparées par un point-virgule." },
-      { icon: <Pause className={iconClass} />, title: "Mise en Pause du Bot", description: "Une nouvelle option dans /config permet de mettre le bot en pause pour stopper l'envoi automatique des questions." },
-      { icon: <RotateCcw className={iconClass} />, title: "Réinitialisation des Questions Perso", description: "Via /questions_perso, vous pouvez maintenant réinitialiser le cycle pour reposer les questions déjà vues." },
-      { icon: <ListChecks className={iconClass} />, title: "Suivi des Questions Perso", description: "La commande /questions_perso affiche le nombre de questions posées et lesquelles sont encore disponibles." },
-      { icon: <Shield className={iconClass} />, title: "Arrêt de la Question de Test", description: "La question lancée avec /test_question peut être annulée à tout moment par un administrateur via un bouton." },
-      { icon: <MessageSquare className={iconClass} />, title: "Masquer les Réponses aux Résultats", description: "Une option de configuration permet de masquer la liste complète des réponses des utilisateurs lors de l'annonce des résultats." },
-      { icon: <Maximize2 className={iconClass} />, title: "Test et Question Normale Simultanés", description: "Il est possible de lancer une question de test (/test_question) en même temps que la question officielle du jour." }
+      { icon: <UserMinus className={iconClass} />, title: "Masquer les membres partis", description: "Une nouvelle option dans /gestion_classement permet de cacher automatiquement du classement les membres qui ne sont plus sur le serveur." },
+      { icon: <Eye className={iconClass} />, title: "Voir les réponses en cours", description: "La nouvelle commande /voir_reponses permet aux administrateurs de consulter les réponses soumises pour une question encore active." },
+      { icon: <CheckSquare className={iconClass} />, title: "Questions à choix multiples (QCM)", description: "Le bot supporte désormais les QCM avec jusqu'à 25 options. Les utilisateurs peuvent répondre par lettre (A, B, C...) ou par texte." },
+      { icon: <ListChecks className={iconClass} />, title: "Multiples réponses possibles", description: "Les questions texte peuvent accepter plusieurs réponses correctes (synonymes) séparées par un point-virgule." },
+      { icon: <Pause className={iconClass} />, title: "Mise en pause du bot", description: "Une nouvelle option dans /config permet de mettre le bot en pause pour stopper l'envoi automatique des questions." },
+      { icon: <RotateCcw className={iconClass} />, title: "Réinitialisation des questions perso", description: "Via /questions_perso, vous pouvez maintenant réinitialiser le cycle pour reposer les questions déjà vues." },
+      { icon: <ListChecks className={iconClass} />, title: "Suivi des questions perso", description: "La commande /questions_perso affiche le nombre de questions posées et lesquelles sont encore disponibles." },
+      { icon: <Shield className={iconClass} />, title: "Arrêt de la question de test", description: "La question lancée avec /test_question peut être annulée à tout moment par un administrateur via un bouton." },
+      { icon: <MessageSquare className={iconClass} />, title: "Masquer les réponses aux résultats", description: "Une option de configuration permet de masquer la liste complète des réponses des utilisateurs lors de l'annonce des résultats." },
+      { icon: <Maximize2 className={iconClass} />, title: "Test et question normale simultanés", description: "Il est possible de lancer une question de test (/test_question) en même temps que la question officielle du jour." }
     ],
     en: [
-      { icon: <CheckSquare className={iconClass} />, title: "Multiple Choice Questions (MCQ)", description: "The bot now supports MCQs with up to 25 options. Users can answer by letter (A, B, C...) or by text." },
-      { icon: <ListChecks className={iconClass} />, title: "Multiple Correct Answers", description: "Text questions can accept multiple correct answers (synonyms) separated by a semicolon." },
-      { icon: <Pause className={iconClass} />, title: "Pause the Bot", description: "A new option in /config allows you to pause the bot to stop automatic question sending." },
-      { icon: <RotateCcw className={iconClass} />, title: "Custom Questions Reset", description: "Via /custom_questions, you can now reset the cycle to re-ask already seen questions." },
-      { icon: <ListChecks className={iconClass} />, title: "Custom Questions Tracking", description: "The /custom_questions command displays the number of questions asked and which ones are still available." },
-      { icon: <Shield className={iconClass} />, title: "Stop Test Question", description: "A question launched with /test_question can be canceled at any time by an administrator via a button." },
-      { icon: <MessageSquare className={iconClass} />, title: "Hide Answers in Results", description: "A configuration option allows hiding the full list of user answers during the results announcement." },
-      { icon: <Maximize2 className={iconClass} />, title: "Simultaneous Test and Normal Question", description: "It is possible to launch a test question (/test_question) at the same time as the official question of the day." }
+      { icon: <UserMinus className={iconClass} />, title: "Hide left members", description: "A new option in /manage_leaderboard allows automatically hiding members who are no longer in the server from the leaderboard." },
+      { icon: <Eye className={iconClass} />, title: "View ongoing responses", description: "The new /see_responses command allows administrators to view submitted responses for a still active question." },
+      { icon: <CheckSquare className={iconClass} />, title: "Multiple choice questions (MCQ)", description: "The bot now supports MCQs with up to 25 options. Users can answer by letter (A, B, C...) or by text." },
+      { icon: <ListChecks className={iconClass} />, title: "Multiple correct answers", description: "Text questions can accept multiple correct answers (synonyms) separated by a semicolon." },
+      { icon: <Pause className={iconClass} />, title: "Pause the bot", description: "A new option in /config allows you to pause the bot to stop automatic question sending." },
+      { icon: <RotateCcw className={iconClass} />, title: "Custom questions reset", description: "Via /custom_questions, you can now reset the cycle to re-ask already seen questions." },
+      { icon: <ListChecks className={iconClass} />, title: "Custom questions tracking", description: "The /custom_questions command displays the number of questions asked and which ones are still available." },
+      { icon: <Shield className={iconClass} />, title: "Stop test question", description: "A question launched with /test_question can be canceled at any time by an administrator via a button." },
+      { icon: <MessageSquare className={iconClass} />, title: "Hide answers in results", description: "A configuration option allows hiding the full list of user answers during the results announcement." },
+      { icon: <Maximize2 className={iconClass} />, title: "Simultaneous test and normal question", description: "It is possible to launch a test question (/test_question) at the same time as the official question of the day." }
     ]
   };
 
