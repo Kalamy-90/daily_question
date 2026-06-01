@@ -1,109 +1,249 @@
 import React from 'react';
-import { Settings, PlayCircle, HelpCircle, ListChecks, BarChart2, Shield, Zap, Award, LogIn, MessageCircle, Users, Edit3, Server, AlertTriangle, DatabaseZap, CalendarClock, FileText, UserCheck, BellRing, RotateCcw, Languages, Eye, UserMinus } from 'lucide-react';
+import { Settings, PlayCircle, HelpCircle, ListChecks, BarChart2, Shield, Zap, Award, LogIn, MessageCircle, Users, Edit3, Server, AlertTriangle, DatabaseZap, CalendarClock, FileText, UserCheck, BellRing, RotateCcw, Languages, Eye, UserMinus, Pause, CheckSquare, Maximize2 } from 'lucide-react';
 
 export const featuresData = {
   fr: [
     {
       icon: <CalendarClock className="h-10 w-10 text-purple-400" />,
-      title: "Questions quotidiennes automatisées quand vous voulez",
-      description: "Chaque jour, à une heure que vous définissez, le bot publie automatiquement une nouvelle question dans le salon de votre choix. Planification ultra flexible : par heure, jour, semaine ou mois, avec possibilité de programmer plusieurs questions dans la même journée. Une base de questions variées (culture générale, histoire, science, etc.) est incluse. Vous pouvez également ajouter vos propres questions personnalisées !",
+      title: "Questions quotidiennes automatisées",
+      description: (
+        <ul className="space-y-2 list-disc list-inside">
+          <li>Planification ultra flexible : heure, jour, semaine ou mois.</li>
+          <li>Possibilité de programmer plusieurs questions par jour.</li>
+          <li>Base de questions variées incluse (culture, histoire, science).</li>
+          <li>Ajout illimité de vos propres questions personnalisées.</li>
+        </ul>
+      ),
     },
     {
       icon: <Settings className="h-10 w-10 text-blue-400" />,
-      title: "Configuration personnalisable dans les moindres détails",
-      description: "Commande /config : Une interface intuitive avec des menus déroulants et des modales pour ajuster tous les aspects du bot : Salon des questions, Planification avancée ultra flexible, Rôle à mentionner (ping), Gestion des administrateurs du bot, Récompenses, Mode de réponse, Mode strict, Fuseau horaire du serveur, Activation/Désactivation du classement, Salon de logs, Rôles de podium dynamiques. Possibilité de mettre le bot en pause pour stopper l'envoi automatique des questions.",
+      title: "Configuration personnalisable et mise en pause",
+      description: (
+        <ul className="space-y-2 list-disc list-inside">
+          <li>Interface intuitive via /config avec menus et modales.</li>
+          <li>Gestion complète : salon, fuseau horaire, admins et logs.</li>
+          <li><strong>Mise en pause du bot</strong> : stoppez l'envoi automatique à tout moment.</li>
+          <li>Personnalisation du rôle à mentionner (ping) pour chaque question.</li>
+        </ul>
+      ),
     },
     {
       icon: <MessageCircle className="h-10 w-10 text-blue-400" />,
-      title: "Mode de réponse configurable",
-      description: "Choisissez comment les utilisateurs soumettent leurs réponses : via un formulaire modal privé (recommandé pour éviter le spam) ou directement par messages publics. Le mode strict peut être activé pour forcer l'utilisation du bouton de réponse. Les utilisateurs peuvent modifier leurs réponses avant la fin du temps imparti. Désormais, les questions peuvent accepter de multiples réponses possibles (synonymes).",
+      title: "Mode de réponse et synonymes",
+      description: (
+        <ul className="space-y-2 list-disc list-inside">
+          <li>Formulaire modal privé (anti-spam) ou messages publics.</li>
+          <li><strong>Multiples réponses possibles</strong> : support des synonymes via point-virgule.</li>
+          <li>Mode strict pour forcer l'utilisation du bouton de réponse.</li>
+          <li>Modification des réponses autorisée avant la fin du temps.</li>
+        </ul>
+      ),
     },
     {
       icon: <Award className="h-10 w-10 text-yellow-400" />,
-      title: "Annonce des résultats et récompenses",
-      description: "À l'heure des résultats, le bot annonce la bonne réponse et les gagnants. Définissez des récompenses personnalisées pour les 3 premiers : rôles Discord temporaires ou messages personnalisés. Les rôles peuvent être automatiquement retirés à la prochaine question. Pour une transparence totale, un résumé interactif permet de voir les réponses et temps de réaction. Vous pouvez choisir de masquer la liste complète des réponses lors des résultats.",
+      title: "Résultats, récompenses et confidentialité",
+      description: (
+        <ul className="space-y-2 list-disc list-inside">
+          <li>Annonce automatique de la bonne réponse et des gagnants.</li>
+          <li>Récompenses personnalisées (rôles temporaires ou messages).</li>
+          <li><strong>Masquer les réponses</strong> : cachez la liste des participants aux résultats.</li>
+          <li>Résumé interactif avec temps de réaction pour une transparence totale.</li>
+        </ul>
+      ),
     },
     {
       icon: <BarChart2 className="h-10 w-10 text-green-400" />,
       title: "Système de classement compétitif",
-      description: "Suivez les scores des participants grâce à la commande /classement qui affiche le Top 10 des meilleurs joueurs. Les rôles de podium dynamiques assignent des rôles prestigieux au Top 3 du classement général, mis à jour automatiquement à chaque changement de classement.",
+      description: (
+        <ul className="space-y-2 list-disc list-inside">
+          <li>Commande /classement affichant le Top 10 des meilleurs joueurs.</li>
+          <li><strong>Rôles de podium dynamiques</strong> : attribués automatiquement au Top 3.</li>
+          <li>Mise à jour instantanée à chaque nouvelle question.</li>
+          <li>Attribution de points : 5 pour le 1er, 3 pour le 2ème, 1 pour le 3ème.</li>
+        </ul>
+      ),
     },
     {
       icon: <RotateCcw className="h-10 w-10 text-purple-400" />,
-      title: "Gestion du classement",
-      description: "La commande /gestion_classement permet aux administrateurs de modifier les points d'un joueur, de réinitialiser le classement (pour une nouvelle saison) et d'assigner des rôles prestigieux. Nouveauté : vous pouvez désormais cacher les membres qui ne sont plus sur votre serveur du classement.",
+      title: "Gestion du classement et membres partis",
+      description: (
+        <ul className="space-y-2 list-disc list-inside">
+          <li>Modification manuelle des points par les administrateurs.</li>
+          <li>Réinitialisation complète pour lancer de nouvelles saisons.</li>
+          <li><strong>Masquer les membres partis</strong> : épurez votre classement automatiquement.</li>
+          <li>Assignation manuelle des rôles de prestige via /gestion_classement.</li>
+        </ul>
+      ),
     },
     {
       icon: <Edit3 className="h-10 w-10 text-indigo-400" />,
-      title: "Gestion avancée des questions personnalisées",
-      description: "Commande /questions_perso : Ajoutez vos propres questions et réponses. Modifiez ou supprimez des questions existantes. Choisissez l'ordre d'apparition : séquentiel ou aléatoire. Vous pouvez suivre la progression du cycle (nombre de questions posées) et le réinitialiser pour reposer les questions déjà vues.",
+      title: "Suivi et réinitialisation des questions perso",
+      description: (
+        <ul className="space-y-2 list-disc list-inside">
+          <li><strong>Suivi du cycle</strong> : visualisez le nombre de questions posées.</li>
+          <li><strong>Réinitialisation</strong> : relancez le cycle pour reposer vos questions.</li>
+          <li>Gestion simplifiée : ajout, modification et suppression rapide.</li>
+          <li>Ordre d'apparition au choix : séquentiel ou aléatoire.</li>
+        </ul>
+      ),
     },
     {
       icon: <DatabaseZap className="h-10 w-10 text-orange-400" />,
-      title: "Fiabilité et sauvegarde",
-      description: "Les configurations sont sauvegardées régulièrement. Le bot tente de notifier les administrateurs en cas de problème. Système de validation et synchronisation au démarrage. La commande /test_question peut être lancée en même temps qu'une question officielle et peut être annulée à tout moment.",
+      title: "Fiabilité, tests et arrêt d'urgence",
+      description: (
+        <ul className="space-y-2 list-disc list-inside">
+          <li><strong>Tests simultanés</strong> : lancez /test_question sans impacter l'officielle.</li>
+          <li><strong>Arrêt de la question de test</strong> : annulez un test à tout moment via bouton.</li>
+          <li>Sauvegardes régulières et synchronisation au démarrage.</li>
+          <li>Notifications automatiques aux admins en cas de problème technique.</li>
+        </ul>
+      ),
     },
     {
       icon: <UserCheck className="h-10 w-10 text-red-400" />,
       title: "Modération intégrée pour le jeu",
-      description: "Bannissement du jeu : Les administrateurs peuvent bannir des utilisateurs (temporairement ou définitivement). Invalidation de réponse : Un administrateur peut réagir avec ⚠️ pour annuler une réponse. Visualisez les utilisateurs bannis avec /listban.",
+      description: (
+        <ul className="space-y-2 list-disc list-inside">
+          <li>Bannissement temporaire (en jours) ou définitif des tricheurs.</li>
+          <li>Invalidation de réponse via réaction ⚠️ par un admin.</li>
+          <li>Visualisation et gestion de la liste des bannis avec /listban.</li>
+          <li>Contrôle total sur qui peut participer à la compétition.</li>
+        </ul>
+      ),
     },
     {
       icon: <FileText className="h-10 w-10 text-teal-400" />,
       title: "Journalisation (logs) des actions",
-      description: "Configurez un salon de logs pour suivre les modifications de configuration importantes et les actions de modération (ban/unban). Gardez une trace de qui a fait quoi et quand pour une transparence totale.",
+      description: (
+        <ul className="space-y-2 list-disc list-inside">
+          <li>Salon de logs dédié pour suivre chaque modification.</li>
+          <li>Traçabilité des changements d'heure, de salon et de rôles.</li>
+          <li>Historique des actions de modération (ban/unban).</li>
+          <li>Transparence totale sur l'activité des administrateurs du bot.</li>
+        </ul>
+      ),
     }
   ],
   en: [
     {
       icon: <CalendarClock className="h-10 w-10 text-purple-400" />,
-      title: "Automated daily questions whenever you want",
-      description: "Every day, at a time you define, the bot automatically publishes a new question in the channel of your choice. Ultra-flexible scheduling: by hour, day, week, or month, with the possibility of scheduling multiple questions in the same day. A base of varied questions is included. You can also add your own custom questions!",
+      title: "Automated daily questions",
+      description: (
+        <ul className="space-y-2 list-disc list-inside">
+          <li>Ultra-flexible scheduling: hour, day, week, or month.</li>
+          <li>Option to schedule multiple questions per day.</li>
+          <li>Varied question database included (culture, history, science).</li>
+          <li>Unlimited addition of your own custom questions.</li>
+        </ul>
+      ),
     },
     {
       icon: <Settings className="h-10 w-10 text-blue-400" />,
-      title: "Customizable configuration down to the smallest details",
-      description: "/config command: An intuitive interface to adjust all aspects of the bot: Question channel, Advanced scheduling, Ping role, Admin management, Rewards, Response mode, Strict mode, Timezone, Leaderboard toggle, Logs channel, Dynamic podium roles. Possibility to pause the bot to stop automatic question sending.",
+      title: "Customizable configuration and pause",
+      description: (
+        <ul className="space-y-2 list-disc list-inside">
+          <li>Intuitive interface via /config with menus and modals.</li>
+          <li>Full management: channel, timezone, admins, and logs.</li>
+          <li><strong>Bot pause</strong>: stop automatic sending at any time.</li>
+          <li>Customization of the role to mention (ping) for each question.</li>
+        </ul>
+      ),
     },
     {
       icon: <MessageCircle className="h-10 w-10 text-blue-400" />,
-      title: "Configurable response mode",
-      description: "Choose how users submit their answers: via a private modal form or directly via public messages. Strict mode can be enabled to force the use of the answer button. Users can edit their answers before the time is up. Questions can now accept multiple possible answers (synonyms).",
+      title: "Response mode and synonyms",
+      description: (
+        <ul className="space-y-2 list-disc list-inside">
+          <li>Private modal form (anti-spam) or public messages.</li>
+          <li><strong>Multiple possible answers</strong>: synonym support via semicolon.</li>
+          <li>Strict mode to force the use of the answer button.</li>
+          <li>Answer modification allowed before time runs out.</li>
+        </ul>
+      ),
     },
     {
       icon: <Award className="h-10 w-10 text-yellow-400" />,
-      title: "Results announcement and rewards",
-      description: "At results time, the bot announces the correct answer and the winners. Set custom rewards for the top 3: temporary Discord roles or custom messages. Roles can be automatically removed at the next question. An interactive summary allows seeing answers and reaction times. You can choose to hide the full list of answers during results.",
+      title: "Results, rewards and privacy",
+      description: (
+        <ul className="space-y-2 list-disc list-inside">
+          <li>Automatic announcement of the correct answer and winners.</li>
+          <li>Custom rewards (temporary roles or messages).</li>
+          <li><strong>Hide answers</strong>: hide the participant list in results.</li>
+          <li>Interactive summary with reaction times for full transparency.</li>
+        </ul>
+      ),
     },
     {
       icon: <BarChart2 className="h-10 w-10 text-green-400" />,
       title: "Competitive leaderboard system",
-      description: "Track participant scores with the /leaderboard command which displays the Top 10 best players. Dynamic podium roles assign prestigious roles to the Top 3 of the overall leaderboard, automatically updated with each ranking change.",
+      description: (
+        <ul className="space-y-2 list-disc list-inside">
+          <li>/leaderboard command showing the Top 10 best players.</li>
+          <li><strong>Dynamic podium roles</strong>: automatically assigned to Top 3.</li>
+          <li>Instant update with each new question.</li>
+          <li>Point system: 5 for 1st, 3 for 2nd, 1 for 3rd.</li>
+        </ul>
+      ),
     },
     {
       icon: <RotateCcw className="h-10 w-10 text-purple-400" />,
-      title: "Leaderboard management",
-      description: "The /manage_leaderboard command allows administrators to modify a player's points, reset the leaderboard, and assign prestigious roles. New: you can now hide members who are no longer in your server from the leaderboard.",
+      title: "Leaderboard management and left members",
+      description: (
+        <ul className="space-y-2 list-disc list-inside">
+          <li>Manual point modification by administrators.</li>
+          <li>Full reset to launch new seasons.</li>
+          <li><strong>Hide left members</strong>: automatically clean your leaderboard.</li>
+          <li>Manual prestige role assignment via /manage_leaderboard.</li>
+        </ul>
+      ),
     },
     {
       icon: <Edit3 className="h-10 w-10 text-indigo-400" />,
-      title: "Advanced custom question management",
-      description: "/custom_questions command: Add your own questions and answers. Edit or delete existing questions. Choose the appearance order: sequential or random. You can track cycle progression and reset it to re-ask already seen questions.",
+      title: "Tracking and custom questions reset",
+      description: (
+        <ul className="space-y-2 list-disc list-inside">
+          <li><strong>Cycle tracking</strong>: view the number of questions asked.</li>
+          <li><strong>Reset</strong>: restart the cycle to re-ask your questions.</li>
+          <li>Simplified management: quick add, edit, and delete.</li>
+          <li>Appearance order choice: sequential or random.</li>
+        </ul>
+      ),
     },
     {
       icon: <DatabaseZap className="h-10 w-10 text-orange-400" />,
-      title: "Reliability and backup",
-      description: "Configurations are saved regularly. The bot attempts to notify administrators in case of a problem. Validation and synchronization system at startup. The /test_question command can be launched at the same time as an official question and can be canceled at any time.",
+      title: "Reliability, tests and emergency stop",
+      description: (
+        <ul className="space-y-2 list-disc list-inside">
+          <li><strong>Simultaneous tests</strong>: run /test_question without impacting official.</li>
+          <li><strong>Stop test question</strong>: cancel a test at any time via button.</li>
+          <li>Regular backups and synchronization at startup.</li>
+          <li>Automatic admin notifications for technical issues.</li>
+        </ul>
+      ),
     },
     {
       icon: <UserCheck className="h-10 w-10 text-red-400" />,
       title: "Integrated game moderation",
-      description: "Game banning: Administrators can ban users (temporarily or permanently). Answer invalidation: An administrator can react with ⚠️ to cancel an answer. View banned users with /listban.",
+      description: (
+        <ul className="space-y-2 list-disc list-inside">
+          <li>Temporary (in days) or permanent banning of cheaters.</li>
+          <li>Answer invalidation via ⚠️ reaction by an admin.</li>
+          <li>Visualization and management of banned list with /listban.</li>
+          <li>Full control over who can participate in the competition.</li>
+        </ul>
+      ),
     },
     {
       icon: <FileText className="h-10 w-10 text-teal-400" />,
       title: "Action logging",
-      description: "Configure a logs channel to track important configuration changes and moderation actions. Keep track of who did what and when for full transparency.",
+      description: (
+        <ul className="space-y-2 list-disc list-inside">
+          <li>Dedicated logs channel to track every modification.</li>
+          <li>Traceability of time, channel, and role changes.</li>
+          <li>History of moderation actions (ban/unban).</li>
+          <li>Full transparency on bot administrator activity.</li>
+        </ul>
+      ),
     }
   ]
 };

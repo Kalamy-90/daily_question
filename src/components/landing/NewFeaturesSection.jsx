@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { MessageSquare, RotateCcw, Shield, CheckSquare, Pause, Maximize2, ListChecks, ChevronDown, ChevronUp, Sparkles, Eye, UserMinus } from 'lucide-react';
+import { Sparkles, Eye, UserMinus, ChevronDown, ChevronUp, CheckSquare } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import { translations } from '@/lib/translations';
 
@@ -10,12 +10,12 @@ const iconClass = "h-7 w-7 text-amber-200";
 
 const labels = {
   fr: {
-    showAll: 'Voir toutes les nouvelles fonctionnalités',
-    showLess: 'Réduire les nouvelles fonctionnalités',
+    showAll: 'Voir toutes les nouveautés',
+    showLess: 'Réduire',
   },
   en: {
-    showAll: 'View all new features',
-    showLess: 'Show fewer new features',
+    showAll: 'View all news',
+    showLess: 'Show less',
   },
 };
 
@@ -26,28 +26,14 @@ const NewFeaturesSection = () => {
 
   const newFeatures = {
     fr: [
-      { icon: <UserMinus className={iconClass} />, title: "Masquer les membres partis", description: "Une nouvelle option dans /gestion_classement permet de cacher automatiquement du classement les membres qui ne sont plus sur le serveur." },
-      { icon: <Eye className={iconClass} />, title: "Voir les réponses en cours", description: "La nouvelle commande /voir_reponses permet aux administrateurs de consulter les réponses soumises pour une question encore active." },
-      { icon: <CheckSquare className={iconClass} />, title: "Questions à choix multiples (QCM)", description: "Le bot supporte désormais les QCM avec jusqu'à 25 options. Les utilisateurs peuvent répondre par lettre (A, B, C...) ou par texte." },
-      { icon: <ListChecks className={iconClass} />, title: "Multiples réponses possibles", description: "Les questions texte peuvent accepter plusieurs réponses correctes (synonymes) séparées par un point-virgule." },
-      { icon: <Pause className={iconClass} />, title: "Mise en pause du bot", description: "Une nouvelle option dans /config permet de mettre le bot en pause pour stopper l'envoi automatique des questions." },
-      { icon: <RotateCcw className={iconClass} />, title: "Réinitialisation des questions perso", description: "Via /questions_perso, vous pouvez maintenant réinitialiser le cycle pour reposer les questions déjà vues." },
-      { icon: <ListChecks className={iconClass} />, title: "Suivi des questions perso", description: "La commande /questions_perso affiche le nombre de questions posées et lesquelles sont encore disponibles." },
-      { icon: <Shield className={iconClass} />, title: "Arrêt de la question de test", description: "La question lancée avec /test_question peut être annulée à tout moment par un administrateur via un bouton." },
-      { icon: <MessageSquare className={iconClass} />, title: "Masquer les réponses aux résultats", description: "Une option de configuration permet de masquer la liste complète des réponses des utilisateurs lors de l'annonce des résultats." },
-      { icon: <Maximize2 className={iconClass} />, title: "Test et question normale simultanés", description: "Il est possible de lancer une question de test (/test_question) en même temps que la question officielle du jour." }
+      { icon: <UserMinus className={iconClass} />, title: "Masquer les membres partis", description: "Cachez automatiquement du classement les membres qui ne sont plus sur le serveur via /gestion_classement." },
+      { icon: <Eye className={iconClass} />, title: "Voir les réponses en cours", description: "La nouvelle commande /voir_reponses permet aux admins de consulter les réponses d'une question active." },
+      { icon: <CheckSquare className={iconClass} />, title: "Questions à choix multiples (QCM)", description: "Le bot supporte désormais les QCM avec jusqu'à 25 options (réponse par lettre ou texte)." }
     ],
     en: [
-      { icon: <UserMinus className={iconClass} />, title: "Hide left members", description: "A new option in /manage_leaderboard allows automatically hiding members who are no longer in the server from the leaderboard." },
-      { icon: <Eye className={iconClass} />, title: "View ongoing responses", description: "The new /see_responses command allows administrators to view submitted responses for a still active question." },
-      { icon: <CheckSquare className={iconClass} />, title: "Multiple choice questions (MCQ)", description: "The bot now supports MCQs with up to 25 options. Users can answer by letter (A, B, C...) or by text." },
-      { icon: <ListChecks className={iconClass} />, title: "Multiple correct answers", description: "Text questions can accept multiple correct answers (synonyms) separated by a semicolon." },
-      { icon: <Pause className={iconClass} />, title: "Pause the bot", description: "A new option in /config allows you to pause the bot to stop automatic question sending." },
-      { icon: <RotateCcw className={iconClass} />, title: "Custom questions reset", description: "Via /custom_questions, you can now reset the cycle to re-ask already seen questions." },
-      { icon: <ListChecks className={iconClass} />, title: "Custom questions tracking", description: "The /custom_questions command displays the number of questions asked and which ones are still available." },
-      { icon: <Shield className={iconClass} />, title: "Stop test question", description: "A question launched with /test_question can be canceled at any time by an administrator via a button." },
-      { icon: <MessageSquare className={iconClass} />, title: "Hide answers in results", description: "A configuration option allows hiding the full list of user answers during the results announcement." },
-      { icon: <Maximize2 className={iconClass} />, title: "Simultaneous test and normal question", description: "It is possible to launch a test question (/test_question) at the same time as the official question of the day." }
+      { icon: <UserMinus className={iconClass} />, title: "Hide left members", description: "Automatically hide members who are no longer in the server from the leaderboard via /manage_leaderboard." },
+      { icon: <Eye className={iconClass} />, title: "View ongoing responses", description: "The new /see_responses command allows admins to view responses for an active question." },
+      { icon: <CheckSquare className={iconClass} />, title: "Multiple choice questions (MCQ)", description: "The bot now supports MCQs with up to 25 options (answer by letter or text)." }
     ]
   };
 
@@ -108,16 +94,18 @@ const NewFeaturesSection = () => {
           </motion.div>
         </AnimatePresence>
 
-        <div className="mt-10 flex justify-center">
-          <Button
-            variant="outline"
-            className="premium-button-secondary min-w-[280px] justify-center"
-            onClick={() => setShowAll((value) => !value)}
-          >
-            {showAll ? <ChevronUp className="mr-2 h-4 w-4" /> : <ChevronDown className="mr-2 h-4 w-4" />}
-            {showAll ? copy.showLess : copy.showAll}
-          </Button>
-        </div>
+        {currentNewFeatures.length > 3 && (
+          <div className="mt-10 flex justify-center">
+            <Button
+              variant="outline"
+              className="premium-button-secondary min-w-[280px] justify-center"
+              onClick={() => setShowAll((value) => !value)}
+            >
+              {showAll ? <ChevronUp className="mr-2 h-4 w-4" /> : <ChevronDown className="mr-2 h-4 w-4" />}
+              {showAll ? copy.showLess : copy.showAll}
+            </Button>
+          </div>
+        )}
       </div>
     </motion.section>
   );
