@@ -47,24 +47,38 @@ const FeaturesSection = () => {
       return description;
     }
     
-    // Si c'est un objet React (JSX), on l'affiche tel quel ou on extrait le texte pour la version tronquée
+    // Si c'est du JSX (notre nouveau format)
     if (isTruncated) {
-      // Pour l'aperçu, on prend le texte du premier <li> s'il existe
       try {
+        // On essaie d'extraire le texte du premier paragraphe ou du premier enfant
         if (description.props && description.props.children) {
           const children = React.Children.toArray(description.props.children);
-          const firstLi = children.find(child => child.type === 'li');
-          if (firstLi && firstLi.props && firstLi.props.children) {
-            const text = Array.isArray(firstLi.props.children) 
-              ? firstLi.props.children.map(c => typeof c === 'string' ? c : (c.props?.children || '')).join('')
-              : firstLi.props.children;
-            return typeof text === 'string' ? (text.length > 100 ? text.substring(0, 100) + '...' : text) : 'Découvrez cette fonctionnalité...';
+          
+          // On cherche d'abord un paragraphe <p>
+          const pChild = children.find(child => child.type === 'p');
+          if (pChild && pChild.props && pChild.props.children) {
+            const text = Array.isArray(pChild.props.children) 
+              ? pChild.props.children.map(c => typeof c === 'string' ? c : (c.props?.children || '')).join('')
+              : pChild.props.children;
+            return typeof text === 'string' ? (text.length > 115 ? text.substring(0, 115) + '...' : text) : '';
           }
+          
+          // Sinon on prend le texte brut de tous les enfants
+          const allText = children.map(child => {
+            if (typeof child === 'string') return child;
+            if (child.props && child.props.children) {
+              return React.Children.toArray(child.props.children)
+                .map(c => typeof c === 'string' ? c : '')
+                .join(' ');
+            }
+            return '';
+          }).join(' ');
+          
+          return allText.length > 115 ? allText.substring(0, 115) + '...' : allText;
         }
       } catch (e) {
-        return 'Découvrez cette fonctionnalité...';
+        return 'Cliquez sur en savoir plus pour voir les détails.';
       }
-      return 'Découvrez cette fonctionnalité...';
     }
     
     return description;
