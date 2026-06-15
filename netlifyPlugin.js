@@ -5,7 +5,13 @@ const netlifyPlugin = () => ({
   name: 'netlify-redirects',
   writeBundle() {
     const redirectContent = '/* /index.html 200';
-    const outputPath = path.resolve(process.cwd(), 'dist', '_redirects');
+    const distPath = path.resolve(process.cwd(), 'dist');
+    const outputPath = path.resolve(distPath, '_redirects');
+    
+    if (!fs.existsSync(distPath)) {
+      fs.mkdirSync(distPath, { recursive: true });
+    }
+    
     fs.writeFileSync(outputPath, redirectContent);
     console.log('Generated _redirects file for Netlify');
   },

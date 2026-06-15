@@ -1,7 +1,10 @@
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import react from '@vitejs/plugin-react';
 import { createLogger, defineConfig } from 'vite';
 import netlifyPlugin from './netlifyPlugin';
+
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 const configHorizonsViteErrorHandler = `
 const observer = new MutationObserver((mutations) => {
@@ -168,8 +171,6 @@ const addTransformIndexHtml = {
 		};
 	},
 };
-
-console.warn = () => {};
 
 const logger = createLogger()
 const loggerError = logger.error
