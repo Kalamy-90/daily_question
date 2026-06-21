@@ -126,13 +126,18 @@ const AboutSection = () => {
               viewport={{ once: true, amount: 0.25 }}
               className="premium-card flex-1"
             >
-              <div className="relative z-10 p-7 sm:p-8">
+              <div className="relative z-10 flex flex-col h-full p-7 sm:p-8">
                 <h3 className="font-display mb-4 text-2xl font-bold text-amber-100">{about.contactTitle}</h3>
                 <p className="mb-6 text-sm leading-7 text-slate-300">{about.contactIntro}</p>
                 <div className="grid gap-3">
                   <ContactLink href="https://discord.com/invite/wE6vjjCXW3" icon={MessageCircle}>{about.discordLabel}</ContactLink>
                   <ContactLink href="mailto:kalamys.team@gmail.com" icon={Mail}>kalamys.team@gmail.com</ContactLink>
                 </div>
+                <p className="mt-6 rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-sm leading-7 text-slate-400">
+                  {language === 'fr'
+                    ? "Nous répondons généralement sous 24 à 48 h. Pour les commandes de bots, précisez vos besoins dans votre premier message afin d'obtenir un devis rapide."
+                    : "We usually reply within 24 to 48 hours. For bot orders, please describe your needs in your first message to get a quick quote."}
+                </p>
               </div>
             </motion.aside>
 
