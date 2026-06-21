@@ -53,7 +53,7 @@ const AboutSection = () => {
         </div>
 
         <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1.12fr_0.88fr]">
-          {/* Colonne gauche : La Kalamy's Team + LexiBourse */}
+          {/* Colonne gauche : La Kalamy's Team + Lexi Bourse */}
           <div className="flex flex-col gap-6 h-full">
             <motion.article
               custom={0}
@@ -71,7 +71,7 @@ const AboutSection = () => {
                   <h3 className="font-display text-3xl font-bold text-amber-100">{about.teamTitle}</h3>
                 </div>
 
-                <div className="space-y-3 text-xs leading-6 text-slate-300">
+                <div className="space-y-3 text-sm leading-6 text-slate-300">
                   {about.teamParagraphs.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}
@@ -88,7 +88,7 @@ const AboutSection = () => {
               </div>
             </motion.article>
 
-            {/* Bloc LexiBourse */}
+            {/* Bloc Lexi Bourse */}
             <motion.article
               custom={1}
               variants={itemAnimation}
@@ -102,15 +102,15 @@ const AboutSection = () => {
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-green-400/25 bg-green-400/10 text-green-300 shadow-xl shadow-green-950/20">
                     <TrendingUp className="h-6 w-6" aria-hidden="true" />
                   </div>
-                  <h3 className="font-display text-2xl font-bold text-amber-100">LexiBourse</h3>
+                  <h3 className="font-display text-2xl font-bold text-amber-100">Lexi Bourse</h3>
                 </div>
                 <p className="mb-6 text-sm leading-7 text-slate-300">
                   {language === 'fr'
-                    ? "LexiBourse est l'autre projet phare de la Kalamy's Team. Ce bot Discord transforme les conversations de votre serveur en un véritable marché boursier dynamique : chaque mot devient une action à acheter, vendre et spéculer."
-                    : "LexiBourse is another flagship project from Kalamy's Team. This Discord bot turns your server's conversations into a real dynamic stock market: every word becomes a stock to buy, sell, and speculate on."}
+                    ? "Lexi Bourse est l'autre projet phare de la Kalamy's Team. Ce bot Discord transforme les conversations de votre serveur en un véritable marché boursier dynamique : chaque mot devient une action à acheter, vendre et spéculer."
+                    : "Lexi Bourse is another flagship project from Kalamy's Team. This Discord bot turns your server's conversations into a real dynamic stock market: every word becomes a stock to buy, sell, and speculate on."}
                 </p>
                 <ContactLink href="https://lexibourse.netlify.app/" icon={TrendingUp}>
-                  {language === 'fr' ? 'Découvrir LexiBourse' : 'Discover LexiBourse'}
+                  {language === 'fr' ? 'Découvrir Lexi Bourse' : 'Discover Lexi Bourse'}
                 </ContactLink>
               </div>
             </motion.article>
