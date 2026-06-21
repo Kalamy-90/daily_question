@@ -52,9 +52,9 @@ const AboutSection = () => {
           <p className="section-subtitle">{about.subtitle}</p>
         </div>
 
-        <div className="mx-auto grid max-w-6xl items-stretch gap-6 lg:grid-cols-[1.12fr_0.88fr]">
+        <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1.12fr_0.88fr]">
           {/* Colonne gauche : La Kalamy's Team + LexiBourse */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 h-full">
             <motion.article
               custom={0}
               variants={itemAnimation}
@@ -117,14 +117,14 @@ const AboutSection = () => {
           </div>
 
           {/* Colonne droite : Nous contacter + À propos de Kalamy */}
-          <div className="grid h-full gap-6">
+          <div className="flex flex-col gap-6">
             <motion.aside
               custom={2}
               variants={itemAnimation}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.25 }}
-              className="premium-card"
+              className="premium-card flex-1"
             >
               <div className="relative z-10 p-7 sm:p-8">
                 <h3 className="font-display mb-4 text-2xl font-bold text-amber-100">{about.contactTitle}</h3>
@@ -142,7 +142,7 @@ const AboutSection = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.25 }}
-              className="premium-card"
+              className="premium-card flex-1"
             >
               <div className="relative z-10 p-7 sm:p-8">
                 <h3 className="font-display mb-4 text-2xl font-bold text-amber-100">{about.kalamyTitle}</h3>
