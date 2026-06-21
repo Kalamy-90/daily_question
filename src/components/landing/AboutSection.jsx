@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Bot, ExternalLink, Mail, MessageCircle, Sparkles, UserPlus, Users } from 'lucide-react';
+import { Bot, ExternalLink, Mail, MessageCircle, Sparkles, TrendingUp, UserPlus, Users } from 'lucide-react';
 import { sectionAnimation, itemAnimation } from '@/data/content';
 import { useLanguage } from '@/lib/LanguageContext';
 import { translations } from '@/lib/translations';
@@ -53,42 +53,73 @@ const AboutSection = () => {
         </div>
 
         <div className="mx-auto grid max-w-6xl items-stretch gap-6 lg:grid-cols-[1.12fr_0.88fr]">
-          <motion.article
-            custom={0}
-            variants={itemAnimation}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.25 }}
-            className="premium-card h-full"
-          >
-            <div className="relative z-10 flex h-full flex-col p-7 sm:p-9">
-              <div className="mb-7 flex items-center gap-4">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-amber-200/25 bg-amber-300/10 text-amber-200 shadow-xl shadow-amber-950/20">
-                  <Users className="h-7 w-7" aria-hidden="true" />
-                </div>
-                <h3 className="font-display text-3xl font-bold text-amber-100">{about.teamTitle}</h3>
-              </div>
-
-              <div className="space-y-7 text-base leading-8 text-slate-300 sm:space-y-8">
-                {about.teamParagraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </div>
-
-              <div className="mt-4 grid gap-3 py-8 sm:mt-5 sm:grid-cols-3 sm:py-9">
-                {highlights.map(({ icon: Icon, text }) => (
-                  <div key={text} className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm font-semibold leading-6 text-slate-200">
-                    <Icon className="mb-3 h-6 w-6 text-amber-200" aria-hidden="true" />
-                    {text}
+          {/* Colonne gauche : La Kalamy's Team + LexiBourse */}
+          <div className="flex flex-col gap-6">
+            <motion.article
+              custom={0}
+              variants={itemAnimation}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.25 }}
+              className="premium-card"
+            >
+              <div className="relative z-10 flex flex-col p-7 sm:p-9">
+                <div className="mb-7 flex items-center gap-4">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-amber-200/25 bg-amber-300/10 text-amber-200 shadow-xl shadow-amber-950/20">
+                    <Users className="h-7 w-7" aria-hidden="true" />
                   </div>
-                ))}
-              </div>
-            </div>
-          </motion.article>
+                  <h3 className="font-display text-3xl font-bold text-amber-100">{about.teamTitle}</h3>
+                </div>
 
+                <div className="space-y-7 text-base leading-8 text-slate-300 sm:space-y-8">
+                  {about.teamParagraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+
+                <div className="mt-4 grid gap-3 py-8 sm:mt-5 sm:grid-cols-3 sm:py-9">
+                  {highlights.map(({ icon: Icon, text }) => (
+                    <div key={text} className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm font-semibold leading-6 text-slate-200">
+                      <Icon className="mb-3 h-6 w-6 text-amber-200" aria-hidden="true" />
+                      {text}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.article>
+
+            {/* Bloc LexiBourse */}
+            <motion.article
+              custom={1}
+              variants={itemAnimation}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.25 }}
+              className="premium-card"
+            >
+              <div className="relative z-10 p-7 sm:p-8">
+                <div className="mb-5 flex items-center gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-green-400/25 bg-green-400/10 text-green-300 shadow-xl shadow-green-950/20">
+                    <TrendingUp className="h-6 w-6" aria-hidden="true" />
+                  </div>
+                  <h3 className="font-display text-2xl font-bold text-amber-100">LexiBourse</h3>
+                </div>
+                <p className="mb-6 text-sm leading-7 text-slate-300">
+                  {language === 'fr'
+                    ? "LexiBourse est l'autre projet phare de la Kalamy's Team. Ce bot Discord transforme les conversations de votre serveur en un véritable marché boursier dynamique : chaque mot devient une action à acheter, vendre et spéculer."
+                    : "LexiBourse is another flagship project from Kalamy's Team. This Discord bot turns your server's conversations into a real dynamic stock market: every word becomes a stock to buy, sell, and speculate on."}
+                </p>
+                <ContactLink href="https://lexibourse.netlify.app/" icon={TrendingUp}>
+                  {language === 'fr' ? 'Découvrir LexiBourse' : 'Discover LexiBourse'}
+                </ContactLink>
+              </div>
+            </motion.article>
+          </div>
+
+          {/* Colonne droite : Nous contacter + À propos de Kalamy */}
           <div className="grid h-full gap-6">
             <motion.aside
-              custom={1}
+              custom={2}
               variants={itemAnimation}
               initial="hidden"
               whileInView="visible"
@@ -106,7 +137,7 @@ const AboutSection = () => {
             </motion.aside>
 
             <motion.aside
-              custom={2}
+              custom={3}
               variants={itemAnimation}
               initial="hidden"
               whileInView="visible"

@@ -132,7 +132,7 @@ const SupportDialog = ({ support, variant = "hero" }) => {
           <div className="mt-8 grid gap-3">
             <Button
               className="justify-start rounded-2xl border border-pink-200/25 bg-gradient-to-r from-pink-300 via-fuchsia-300 to-purple-300 px-5 py-7 text-left text-sm font-extrabold uppercase tracking-[0.14em] text-slate-950 shadow-xl shadow-pink-950/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-pink-500/20"
-              onClick={() => window.open('https://ko-fi.com/dailyquestion', '_blank')}
+              onClick={() => window.open('https://ko-fi.com/kalamysteam', '_blank')}
             >
               <CreditCard className="mr-3 h-5 w-5" /> {support.cardPaypal}
             </Button>
