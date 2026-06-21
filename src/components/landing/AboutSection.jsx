@@ -63,21 +63,21 @@ const AboutSection = () => {
               viewport={{ once: true, amount: 0.25 }}
               className="premium-card"
             >
-              <div className="relative z-10 flex flex-col p-6 sm:p-7">
-                <div className="mb-5 flex items-center gap-4">
+              <div className="relative z-10 flex flex-col p-7 sm:p-9">
+                <div className="mb-7 flex items-center gap-4">
                   <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-amber-200/25 bg-amber-300/10 text-amber-200 shadow-xl shadow-amber-950/20">
                     <Users className="h-7 w-7" aria-hidden="true" />
                   </div>
                   <h3 className="font-display text-3xl font-bold text-amber-100">{about.teamTitle}</h3>
                 </div>
 
-                <div className="space-y-3 text-sm leading-7 text-slate-300">
-                  {about.teamParagraphs.slice(0, 3).map((paragraph) => (
+                <div className="space-y-7 text-base leading-8 text-slate-300 sm:space-y-8">
+                  {about.teamParagraphs.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}
                 </div>
 
-                <div className="mt-3 grid gap-3 py-4 sm:mt-3 sm:grid-cols-3 sm:py-5">
+                <div className="mt-4 grid gap-3 py-8 sm:mt-5 sm:grid-cols-3 sm:py-9">
                   {highlights.map(({ icon: Icon, text }) => (
                     <div key={text} className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm font-semibold leading-6 text-slate-200">
                       <Icon className="mb-3 h-6 w-6 text-amber-200" aria-hidden="true" />
@@ -97,8 +97,8 @@ const AboutSection = () => {
               viewport={{ once: true, amount: 0.25 }}
               className="premium-card"
             >
-              <div className="relative z-10 p-6 sm:p-7">
-                <div className="mb-4 flex items-center gap-4">
+              <div className="relative z-10 p-7 sm:p-8">
+                <div className="mb-5 flex items-center gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-green-400/25 bg-green-400/10 text-green-300 shadow-xl shadow-green-950/20">
                     <TrendingUp className="h-6 w-6" aria-hidden="true" />
                   </div>
@@ -124,7 +124,7 @@ const AboutSection = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.25 }}
-              className="premium-card flex-1"
+              className="premium-card"
             >
               <div className="relative z-10 p-7 sm:p-8">
                 <h3 className="font-display mb-4 text-2xl font-bold text-amber-100">{about.contactTitle}</h3>
@@ -142,7 +142,7 @@ const AboutSection = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.25 }}
-              className="premium-card flex-1"
+              className="premium-card"
             >
               <div className="relative z-10 p-7 sm:p-8">
                 <h3 className="font-display mb-4 text-2xl font-bold text-amber-100">{about.kalamyTitle}</h3>
