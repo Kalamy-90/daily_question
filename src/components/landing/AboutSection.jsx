@@ -71,13 +71,13 @@ const AboutSection = () => {
                   <h3 className="font-display text-3xl font-bold text-amber-100">{about.teamTitle}</h3>
                 </div>
 
-                <div className="space-y-7 text-base leading-8 text-slate-300 sm:space-y-8">
-                  {about.teamParagraphs.map((paragraph) => (
+                <div className="space-y-4 text-sm leading-7 text-slate-300">
+                  {about.teamParagraphs.slice(0, 3).map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}
                 </div>
 
-                <div className="mt-4 grid gap-3 py-8 sm:mt-5 sm:grid-cols-3 sm:py-9">
+                <div className="mt-4 grid gap-3 py-5 sm:mt-4 sm:grid-cols-3 sm:py-5">
                   {highlights.map(({ icon: Icon, text }) => (
                     <div key={text} className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm font-semibold leading-6 text-slate-200">
                       <Icon className="mb-3 h-6 w-6 text-amber-200" aria-hidden="true" />
