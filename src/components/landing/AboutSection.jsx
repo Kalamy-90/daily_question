@@ -71,8 +71,8 @@ const AboutSection = () => {
                   <h3 className="font-display text-3xl font-bold text-amber-100">{about.teamTitle}</h3>
                 </div>
 
-                <div className="space-y-4 text-sm leading-7 text-slate-300">
-                  {about.teamParagraphs.slice(0, 3).map((paragraph) => (
+                <div className="space-y-3 text-xs leading-6 text-slate-300">
+                  {about.teamParagraphs.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}
                 </div>
